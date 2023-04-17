@@ -8,6 +8,7 @@ package DoughnutFactory;
 
 public class Doughnut {
     String Style;
+    String catagory;
     int Cost;
 
 }
