@@ -1,3 +1,9 @@
+/**
+ * @author simplex
+ * @file OrderHandler.java
+ * @assignment Project 2
+ * @brief Manager class for orders
+ */
 package DoughnutFactory;
 import java.util.ArrayList;
 

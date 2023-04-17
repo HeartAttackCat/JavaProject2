@@ -1,3 +1,9 @@
+/**
+ * @author simplex
+ * @file App.java
+ * @assignment Project 2
+ * @brief Main class.
+ */
 package DoughnutFactory;
 
 public class App {
