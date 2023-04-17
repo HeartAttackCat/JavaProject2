@@ -1,0 +1,65 @@
+-----
+Senario 1.1: Customer orders 2 Doughtnuts (successful)
+-
+Log onto ordering system.
+requests menu of doughnuts.
+menu is displayed.
+places order for two doughnuts.
+Order confirmed.
+Order is picked up.
+exits.
+-----
+Senario 2.1: Employee viewers orders
+- 
+Log onto ordering system.
+Requests to view orders.
+views orders.
+exits
+-----
+Senario 3.1: Employee updates order (successful finish)
+-
+Employee logs onto ordering system.
+requests to view orders.
+requests to mark an order as complete.
+enters the order that was completed.
+exits
+-----
+Senario 4.1: Customer viewers menu.
+-
+Logs onto ordering system.
+requests to view the menu.
+views menu.
+exits.
+-----
+Senario 5.1: Admin updates menu (adds item)
+- 
+Logs into the ordering system.
+requests to add a new item.
+Specifies the catagory of item (ex: cake).
+Specifies the type of item (ex: angle cake).
+Specifies the item price.
+Saves into it menu.csv.
+exits
+-----
+Senario 5.2: Admin updates menu (removes item)
+-
+Logs into the ordering system.
+requests to delete an item.
+Specifies the catagory of item (ex: cake).
+Specifies the type of item (ex: angle cake).
+Removes item from orders.csv.
+exits
+-----
+Senario 6.1: Admin generates summary reports
+-
+Logs into ordering system.
+Requests to generate reports.
+specifies to generate reports.txt.
+-----
+Senario 6.2: Admin generates report of orders
+-
+Logs into ordering system.
+requests to generates reports.
+specifies to generate orders.csv.
+exits
+-----
