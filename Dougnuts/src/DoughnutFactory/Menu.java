@@ -56,26 +56,44 @@ public class Menu {
      * @brief Prints out the entire menu.
      */
     void ViewMenu(){
+        System.out.println("Type\tItem\tPrice\tQuantity");
+        for(int i = 0; i>MenuItems.size();i++){
+            System.out.print(MenuItems.get(i).catagory + "\t");
+            System.out.print(MenuItems.get(i).Style + "\t");
+            System.out.println(MenuItems.get(i).Cost + "\t" + MenuItems.get(i).count);
+        }
 
     }
 
     /**
      * @brief Adds a new item to the menu
      * @note ADMIN ONLY FUNCTION
+     * @param CatName The catagory we are adding to.
+     * @param Iname the item name
+     * @param c the cost of the item
      * @return if successful return 0
      */
-    int AddItem(){
-
+    int AddItem(String CatName, String Iname, float c){
+        MenuItems.add(new Doughnut(CatName, Iname, c, 0));
         return 0;
     }
 
     /**
      * @brief Deletes a new item to the menu
      * @note ADMIN ONLY FUNCTION
-     * @return if successful return 0
+     * @param CatName the catagory of the doughnut.
+     * @param Iname the items name.
+     * @return if successful return 0; upon failure return 1;
      */
-    int DeleteItem(){
-        return 0;
+    int DeleteItem(String CatName, String Iname){
+    
+        for(int i = 0; i < MenuItems.size(); i++){
+            if(CatName.compareTo(MenuItems.get(i).catagory) == 0 && Iname.compareTo(MenuItems.get(i).Style) == 0){
+                MenuItems.remove(i);
+                return 0;
+            }
+        }
+        return 1;
     }
     
     /**
@@ -83,8 +101,49 @@ public class Menu {
      * @note ADMIN ONLY FUNCTION
      * @return if successful return 0
      */
-    int EditItem(){
+    int EditItem(String CatName, String Iname){
+        for(int i = 0; i < MenuItems.size(); i++){
+            if(CatName.compareTo(MenuItems.get(i).catagory) == 0 && Iname.compareTo(MenuItems.get(i).Style) == 0){
+                UpdateItem(i);
+                return 0;
+            }
+        }
+        return 1;
+    }
 
-        return 0;
+    /**
+     * @brief focuses on updating a single item where the index was provided
+     * @NOTE: This is a very ugly implementation will fix if we have time after the project
+     * works.
+     * @param index The index we are editing
+     */
+    void UpdateItem(int index){
+        String str; 
+        Scanner s = new Scanner(System.in);
+
+        // Updates catagory
+        System.out.print("What is the new item catagory: ");
+        str = s.nextLine();
+        MenuItems.get(index).catagory = str;
+
+        // Updates name
+        System.out.print("What is the new item name: ");
+        str = s.nextLine();
+        MenuItems.get(index).Style = str;
+
+        // Updates cost
+        System.out.print("What is the new item cost: ");
+        str = s.nextLine();
+        MenuItems.get(index).Cost = Float.parseFloat(str);
+
+        // Resets quantity
+        MenuItems.get(index).count = 0;
+    }
+
+    /**
+     * @brief saves any changes to menu.csv
+     */
+    void SaveChanges(){
+
     }
 }
