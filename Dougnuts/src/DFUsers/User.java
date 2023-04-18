@@ -35,7 +35,12 @@ public class User {
      * or Employee password return 1 or 2. If unrecongized return 0.
      * @return Access level
      */
-    int LogIn(){
+    int LogIn(String pass){
+        if (pass.compareTo(AdminPass) == 0){
+            return 1;
+        } else if (pass.compareTo(Employeepass) == 0){
+            return 2;
+        }
         return 0;
     }
 }

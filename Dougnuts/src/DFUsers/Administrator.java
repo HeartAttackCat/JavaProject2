@@ -5,6 +5,8 @@
  * @brief Class for admin level interactions.
  */
 package DFUsers;
+import java.util.Scanner;
+import DoughnutFactory.Menu;
 
 public class Administrator extends User{
     /**
@@ -15,42 +17,48 @@ public class Administrator extends User{
     }
 
     /**
+     * @brief user interface exclusive to admin class
+     * @return exit case
+     */
+    @Override
+    int UInterface(){
+        String str = "";
+        char a = 'a';
+        System.out.println("Welcome User!");
+        Scanner s = new Scanner(System.in);
+        while (a != 'z'){
+            System.out.println("Choose one of the following options");
+            System.out.println("a. ");
+            System.out.println("z. exit");
+            System.out.print("Enter an input: ");
+
+            str = s.nextLine(); 
+            a = str.charAt(0);
+            
+            switch(a){
+                // Call functions from the menu class to represent adding, deleting, etc.
+                case 'a':
+                case 'A':
+                    break;
+
+                case 'z':
+                case 'Z':
+                    return 0;
+
+                default:
+                    System.out.println("Error | Unknown input!");
+            }
+        }
+
+
+        return 0;
+    }
+
+    /**
      * @brief generates sales data reports.
      */
     void GenerateReports(){
 
     }
 
-    /**
-     * @brief Adds an item to the menu class. This is the
-     * interface for adding the item.
-     * @return Exit status
-     */
-    int AddItem(){
-        return 0;
-    }
-
-    /**
-     * @brief deletes an exiting item from the menu.
-     * @return Exit status
-     */
-    int DeleteItem(){
-
-        return 0;
-    }
-
-    /**
-     * @brief edits an existing item from the menu
-     * @return exit status
-     */
-    int EditItem(){
-        return 0;
-    }
-
-    /**
-     * @brief Prints out menu to allow admin to view.
-     */
-    void ViewMenu(){
-
-    }
 }
