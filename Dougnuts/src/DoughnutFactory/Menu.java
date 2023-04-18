@@ -9,7 +9,13 @@
  * is made.
  */
 package DoughnutFactory;
+
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Menu {
     ArrayList<Doughnut> MenuItems;
@@ -19,7 +25,29 @@ public class Menu {
      * in the array list.
      */
     Menu(){
-        int x = 1; // this code is useless.
+        String str;
+		String catagory;
+		String type;
+		String price;
+		ArrayList<String> data = new ArrayList<>();
+		for(int i = 0; i < 4; i++) {
+			data.add("NULL");
+		}
+		Scanner fp;
+		try {
+			fp = new Scanner(new File("./menu.csv"));
+            fp.nextLine();
+			while(fp.hasNextLine()) {
+				str = fp.nextLine();
+				catagory = str.split(",", 4)[0];
+				type = str.split(",", 4)[1];
+				price = str.split(",", 4)[3];
+				MenuItems.add(new Doughnut(catagory, type, Float.valueOf(price)));
+			}
+			fp.close();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
     }
 
     /**

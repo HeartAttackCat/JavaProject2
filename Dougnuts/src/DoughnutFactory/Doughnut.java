@@ -9,6 +9,12 @@ package DoughnutFactory;
 public class Doughnut {
     String Style;
     String catagory;
-    int Cost;
+    float Cost;
+
+    Doughnut(String St, String Cat, float c){
+        Style = St;
+        catagory = Cat;
+        Cost = c;
+    }
 
 }
