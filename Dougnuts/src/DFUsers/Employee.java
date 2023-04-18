@@ -8,6 +8,7 @@ package DFUsers;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 
 public class Employee extends User {
@@ -50,6 +51,24 @@ public class Employee extends User {
      * @return 0 if successful
      */
     int UpdateOrder() {
+        String line = "";
+        String splitBy = ",";
+        try {
+            BufferedReader br = new BufferedReader(new FileReader("./Orders.csv"));
+            FileWriter myWriter = new FileWriter("./Orders.csv", false);
+            myWriter.write(br.readLine());
+            line = br.readLine();
+            while ((line = br.readLine()) != null) {
+                String[] order = line.split(splitBy);
+                myWriter.write("\n");
+                myWriter.write(order[0] + order[1] + order[2] + order[3] + order[4] + order[5] + order[6] + order[7]);
+                myWriter.write("\n");
+            }
+            myWriter.close();
+        } catch (IOException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
         return 0;
     }
 }
