@@ -37,7 +37,7 @@ public class Menu {
 
         // Loads the file
 		try {
-			fp = new Scanner(new File("./menu.csv"));
+			fp = new Scanner(new File("../DFUsers/menu.csv"));
             fp.nextLine();
 			while(fp.hasNextLine()) {
 				str = fp.nextLine();
@@ -142,9 +142,47 @@ public class Menu {
     }
 
     /**
-     * @brief saves any changes to menu.csv
+     * @brief saves any changes to menu.csv.
      */
     void SaveChanges(){
-        
+        try {
+            // Clears file or creates a new if it doesn't exist
+            clearmenu();
+            String str = "";
+            FileWriter fp = new FileWriter("../data/menu.csv", false);
+            fp.write("catagory,style,price,quantity");
+
+            //Begins writing
+            for(int i = 0; i < MenuItems.size(); i++){
+                str = "";
+                str = MenuItems.get(i).catagory + MenuItems.get(i).Style;
+                str = str + String.valueOf(MenuItems.get(i).Cost) + String.valueOf(MenuItems.get(i).count);
+            }
+            fp.close();
+        } catch (Exception e) {
+            // TODO: handle exception
+        }
+    }
+
+    /**
+     * @brief clears the menu.csv in case 
+     * @return If it created a new file 1 if created. 0 if file already exists.
+     */
+    int clearmenu(){
+    try{
+        File myObj = new File("../data/menu.csv");
+        if(myObj.createNewFile()) {
+            return 1;
+        }
+        FileWriter fw = new FileWriter("../data/menu.csv", false);
+        PrintWriter pw = new PrintWriter(fw, false);
+        pw.flush();
+        pw.close();
+        fw.close();
+    
+        }catch(Exception exception){
+
+        }
+    return 0;
     }
 }
