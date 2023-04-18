@@ -10,8 +10,9 @@ public class Doughnut {
     String Style;
     String catagory;
     float Cost;
+    int count;
 
-    Doughnut(String St, String Cat, float c){
+    Doughnut(String St, String Cat, float c, int x){
         Style = St;
         catagory = Cat;
         Cost = c;

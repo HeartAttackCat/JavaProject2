@@ -29,6 +29,7 @@ public class Menu {
 		String catagory;
 		String type;
 		String price;
+        String cont;
 		ArrayList<String> data = new ArrayList<>();
 		for(int i = 0; i < 4; i++) {
 			data.add("NULL");
@@ -42,7 +43,8 @@ public class Menu {
 				catagory = str.split(",", 4)[0];
 				type = str.split(",", 4)[1];
 				price = str.split(",", 4)[3];
-				MenuItems.add(new Doughnut(catagory, type, Float.valueOf(price)));
+                cont = str.split(",", 4)[4];
+				MenuItems.add(new Doughnut(catagory, type, Float.valueOf(price), Integer.valueOf(cont)));
 			}
 			fp.close();
 		} catch (FileNotFoundException e) {

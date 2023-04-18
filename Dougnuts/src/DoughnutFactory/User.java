@@ -27,7 +27,6 @@ public class User {
      * @return exit status
      */
     int UInterface(){
-        int choi = 0;
         return 0;
     }
 
