@@ -22,16 +22,20 @@ public class Menu {
      * in the array list.
      */
     Menu(){
+        // Initalizes variables
         String str;
 		String catagory;
 		String type;
 		String price;
         String cont;
 		ArrayList<String> data = new ArrayList<>();
+
 		for(int i = 0; i < 4; i++) {
 			data.add("NULL");
 		}
 		Scanner fp;
+
+        // Loads the file
 		try {
 			fp = new Scanner(new File("./menu.csv"));
             fp.nextLine();
@@ -80,7 +84,7 @@ public class Menu {
      * @note ADMIN ONLY FUNCTION
      * @param CatName the catagory of the doughnut.
      * @param Iname the items name.
-     * @return if successful return 0; upon failure return 1;
+     * @return if successful return 0; upon failure return 1 (Item not found)
      */
     int DeleteItem(String CatName, String Iname){
     
@@ -96,7 +100,7 @@ public class Menu {
     /**
      * @brief edits an existing item on the menu
      * @note ADMIN ONLY FUNCTION
-     * @return if successful return 0
+     * @return if successful return 0 ; upon failure return 1 (Item note found)
      */
     int EditItem(String CatName, String Iname){
         for(int i = 0; i < MenuItems.size(); i++){
@@ -141,6 +145,6 @@ public class Menu {
      * @brief saves any changes to menu.csv
      */
     void SaveChanges(){
-
+        
     }
 }
