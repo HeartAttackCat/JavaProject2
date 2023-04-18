@@ -6,27 +6,47 @@
  */
 package DoughnutFactory;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
 public class Employee extends User {
 
     /**
      * @brief constructor for employee.
      */
-    Employee(){
+    Employee() {
         super();
     }
 
     /**
      * @brief shows the employee all pending orders.
      */
-    void ViewOrders(){
-
+    void ViewOrders() {
+        String line = "";
+        String splitBy = ",";
+        try {
+            BufferedReader br = new BufferedReader(new FileReader("./Orders.csv"));
+            line = br.readLine();
+            while ((line = br.readLine()) != null) {
+                String[] order = line.split(splitBy);
+                System.out.println("Order Number: " + order[0]);
+                System.out.println("Order Name: " + order[1]);
+                System.out.println("Order Total Price: " + order[2]);
+                System.out.println("Order Total Quantity: " + order[3]);
+                System.out.println("Order Status: " + order[4]);
+            }
+            br.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     /**
      * @brief Updates an existing pending orders process to finished.
      * @return 0 if successful
      */
-    int UpdateOrder(){
+    int UpdateOrder() {
         return 0;
     }
 }
