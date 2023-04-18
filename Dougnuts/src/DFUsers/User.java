@@ -6,6 +6,7 @@
  * inherit it.
  */
 package DFUsers;
+import java.util.Scanner;
 
 public class User {
     String name;
@@ -27,6 +28,41 @@ public class User {
      * @return exit status
      */
     int UInterface(){
+        String str = "";
+        char a = 'a';
+        System.out.println("Welcome User!");
+        Scanner s = new Scanner(System.in);
+        while (a != 'z'){
+            System.out.println("Choose one of the following options");
+            System.out.println("a. countinue as customer.");
+            System.out.println("b. Log in as staff.");
+            System.out.println("z. exit");
+            System.out.print("Enter an input: ");
+
+            str = s.nextLine(); 
+            a = str.charAt(0);
+            
+            switch(a){
+                case 'a':
+                case 'A':
+                    return 0;
+                
+                case 'b':
+                case 'B':
+                    System.out.print("Enter password: ");
+                    str = s.nextLine();
+                    return LogIn(str);
+
+                case 'z':
+                case 'Z':
+                    return -1;
+
+                default:
+                    System.out.println("Error | Unknown input!");
+            }
+        }
+
+
         return 0;
     }
 
