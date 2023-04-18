@@ -30,11 +30,14 @@ public class Employee extends User {
             line = br.readLine();
             while ((line = br.readLine()) != null) {
                 String[] order = line.split(splitBy);
-                System.out.println("Order Number: " + order[0]);
-                System.out.println("Order Name: " + order[1]);
-                System.out.println("Order Total Price: " + order[2]);
-                System.out.println("Order Total Quantity: " + order[3]);
-                System.out.println("Order Status: " + order[4]);
+                if (order[4].equals("pending")) {
+                    System.out.println("Order Number: " + order[0]);
+                    System.out.println("Order Name: " + order[1]);
+                    System.out.println("Order Total Price: " + order[2]);
+                    System.out.println("Order Total Quantity: " + order[3]);
+                    System.out.println("Order Status: " + order[4]);
+                }
+
             }
             br.close();
         } catch (IOException e) {
