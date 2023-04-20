@@ -18,7 +18,7 @@ public class Order {
     /**
      * @brief displays an order
      */
-    void displayOrder(){
+    public void displayOrder(){
         System.out.println("-----");
         System.out.println(name +"'s order");
         System.out.println("Order number: " + number);

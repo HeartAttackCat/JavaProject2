@@ -15,7 +15,7 @@ public class Date {
      * @brief converts the current date into a string
      * @return Returns the date as a string
      */
-    String DateToString(){
+    public String DateToString(){
         String d = Integer.toString(year) + "\\" + Integer.toString(month)
         + "\\" + Integer.toString(day);
         return d;

@@ -21,7 +21,7 @@ public class Administrator extends User{
      * @return exit case
      */
     @Override
-    int UInterface(Menu M){
+    public int UInterface(Menu M){
         String str = "";
         char a = 'a';
         System.out.println("Welcome User!");

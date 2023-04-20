@@ -15,7 +15,7 @@ public class DoughnutStack {
      * @brief returns the current quantity
      * @return The current quantity
      */
-    int getQuantity(){
+    public int getQuantity(){
         return this.quantity;
     }
 
@@ -23,7 +23,7 @@ public class DoughnutStack {
      * @breif updates the quantity of the type ordered
      * @param quantity the new quantity
      */
-    void setQuantity(int quantity){
+    public void setQuantity(int quantity){
         this.quantity = quantity;
     }
 
@@ -31,7 +31,7 @@ public class DoughnutStack {
      * @breif gets the doughnut type
      * @return the doughtnut type
      */
-    Doughnut getType(){
+    public Doughnut getType(){
         return DoughnutType;
     }
 
@@ -39,7 +39,7 @@ public class DoughnutStack {
      * @brief sets/updates the doughnut type
      * @param type the type we are setting
      */
-    void setType(Doughnut type) {
+    public void setType(Doughnut type) {
         this.DoughnutType = type;
     }
 }

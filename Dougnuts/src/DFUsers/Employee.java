@@ -24,7 +24,7 @@ public class Employee extends User {
     /**
      * @brief shows the employee all pending orders.
      */
-    void ViewOrders() {
+    public void ViewOrders() {
         String line = "";
         String splitBy = ",";
         try {
@@ -51,7 +51,7 @@ public class Employee extends User {
      * @brief Updates an existing pending orders process to finished.
      * @return 0 if successful
      */
-    int UpdateOrder() {
+    public int UpdateOrder() {
         String line = "";
         String splitBy = ",";
         try {
