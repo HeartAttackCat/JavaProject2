@@ -9,6 +9,13 @@ import java.util.ArrayList;
 
 public class OrderHandler {
     ArrayList<Order> Orders;
+
+    /**
+     * @brief constructor
+     */
+    OrderHandler(){
+        
+    }
     
     public int saveOrders(){
         return 0;

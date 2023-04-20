@@ -10,6 +10,17 @@ package DoughnutFactory;
 public class DoughnutStack {
     Doughnut DoughnutType;
     int quantity;
+    Date expire;
+
+    /**
+     * @brief constructor
+     */
+    DoughnutStack(String Y, String M, String D, Doughnut t){
+        quantity = 20;
+
+
+        
+    }
 
     /**
      * @brief returns the current quantity

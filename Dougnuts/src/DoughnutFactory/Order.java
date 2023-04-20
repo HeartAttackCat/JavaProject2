@@ -16,6 +16,13 @@ public class Order {
     int TotalQuantity;
 
     /**
+     * @brief constructor
+     */
+    Order(){
+
+    }
+
+    /**
      * @brief displays an order
      */
     public void displayOrder(){
