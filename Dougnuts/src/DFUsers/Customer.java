@@ -43,6 +43,12 @@ public class Customer extends User{
             switch(a){
                 case 'a':
                 case 'A':
+                    ViewMenu();
+                    break;
+
+                case 'b':
+                case 'B':
+                    PlaceOrder();
                     break;
 
                 case 'z':
@@ -66,7 +72,7 @@ public class Customer extends User{
     }
 
     /**
-     * @brief places an order
+     * @brief places an order.
      */
     void PlaceOrder(){
 

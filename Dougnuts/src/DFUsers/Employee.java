@@ -65,6 +65,7 @@ public class Employee extends User {
                 myWriter.write("\n");
             }
             myWriter.close();
+            br.close();
         } catch (IOException e) {
             System.out.println("An error occurred.");
             e.printStackTrace();

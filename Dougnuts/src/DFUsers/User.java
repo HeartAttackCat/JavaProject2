@@ -45,16 +45,19 @@ public class User {
             switch(a){
                 case 'a':
                 case 'A':
+                    s.close();
                     return 0;
                 
                 case 'b':
                 case 'B':
                     System.out.print("Enter password: ");
                     str = s.nextLine();
+                    s.close();
                     return LogIn(str);
 
                 case 'z':
                 case 'Z':
+                    s.close();
                     return -1;
 
                 default:
@@ -62,7 +65,7 @@ public class User {
             }
         }
 
-
+        s.close();
         return 0;
     }
 

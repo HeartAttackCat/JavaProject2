@@ -139,6 +139,7 @@ public class Menu {
 
         // Resets quantity
         MenuItems.get(index).count = 0;
+        s.close();
     }
 
     /**
