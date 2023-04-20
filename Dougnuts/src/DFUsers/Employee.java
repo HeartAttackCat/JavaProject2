@@ -17,7 +17,7 @@ public class Employee extends User {
     /**
      * @brief constructor for employee.
      */
-    Employee() {
+    public Employee() {
         super();
     }
 

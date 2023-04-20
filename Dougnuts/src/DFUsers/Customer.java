@@ -14,7 +14,7 @@ public class Customer extends User{
     /**
      * @brief constructor class for customer.
      */
-    Customer(){
+    public Customer(){
         super();
     }
 

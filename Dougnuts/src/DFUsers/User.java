@@ -18,7 +18,7 @@ public class User {
     /**
      * @brief class builder
      */
-    User(){
+    public User(){
         
     }
 
