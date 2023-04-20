@@ -63,7 +63,7 @@ public class Administrator extends User {
     void GenerateReports() {
         try {
             FileWriter myWriter = new FileWriter("Reports.txt", false);
-            // TODO insert report writing
+            // TODO write reports using order info
             myWriter.close();
             System.out.println("Successfully wrote Report.");
         } catch (IOException e) {
