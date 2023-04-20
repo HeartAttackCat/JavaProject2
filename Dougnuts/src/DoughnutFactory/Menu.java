@@ -11,18 +11,18 @@
 package DoughnutFactory;
 
 import java.io.*;
+import java.security.AllPermission;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Menu {
-    ArrayList<Doughnut> MenuItems;
+    ArrayList<Doughnut> MenuItems = new ArrayList<>();
 
     /**
      * @brief super function for menu class. Imports Menu.csv to load values for each item
      * in the array list.
      */
     Menu(){
-        // Initalizes variables
         String str;
 		String catagory;
 		String type;
@@ -37,10 +37,12 @@ public class Menu {
 
         // Loads the file
 		try {
-			fp = new Scanner(new File("../../res/menu.csv"));
-            fp.nextLine();
+			fp = new Scanner(new File("./menu.csv"));
+            System.out.println(fp.nextLine());
+            System.out.println(fp.hasNextLine());
 			while(fp.hasNextLine()) {
 				str = fp.nextLine();
+                System.out.print(str);
 				catagory = str.split(",", 4)[0];
 				type = str.split(",", 4)[1];
 				price = str.split(",", 4)[3];
@@ -56,7 +58,7 @@ public class Menu {
     /**
      * @brief Prints out the entire menu.
      */
-    void ViewMenu(){
+    public void ViewMenu(){
         System.out.println("Type\tItem\tPrice\tQuantity");
         for(int i = 0; i>MenuItems.size();i++){
             System.out.print(MenuItems.get(i).catagory + "\t");
@@ -74,7 +76,7 @@ public class Menu {
      * @param c the cost of the item
      * @return if successful return 0
      */
-    int AddItem(String CatName, String Iname, float c){
+    public int AddItem(String CatName, String Iname, float c){
         MenuItems.add(new Doughnut(CatName, Iname, c, 0));
         return 0;
     }
@@ -86,7 +88,7 @@ public class Menu {
      * @param Iname the items name.
      * @return if successful return 0; upon failure return 1 (Item not found)
      */
-    int DeleteItem(String CatName, String Iname){
+    public int DeleteItem(String CatName, String Iname){
     
         for(int i = 0; i < MenuItems.size(); i++){
             if(CatName.compareTo(MenuItems.get(i).catagory) == 0 && Iname.compareTo(MenuItems.get(i).Style) == 0){
@@ -102,7 +104,7 @@ public class Menu {
      * @note ADMIN ONLY FUNCTION
      * @return if successful return 0 ; upon failure return 1 (Item note found)
      */
-    int EditItem(String CatName, String Iname){
+    public int EditItem(String CatName, String Iname){
         for(int i = 0; i < MenuItems.size(); i++){
             if(CatName.compareTo(MenuItems.get(i).catagory) == 0 && Iname.compareTo(MenuItems.get(i).Style) == 0){
                 UpdateItem(i);
@@ -118,7 +120,7 @@ public class Menu {
      * works.
      * @param index The index we are editing
      */
-    void UpdateItem(int index){
+    public void UpdateItem(int index){
         String str; 
         Scanner s = new Scanner(System.in);
 
@@ -170,20 +172,20 @@ public class Menu {
      * @return If it created a new file 1 if created. 0 if file already exists.
      */
     int clearmenu(){
-    try{
-        File myObj = new File("../../res/menu.csv");
-        if(myObj.createNewFile()) {
-            return 1;
-        }
-        FileWriter fw = new FileWriter("../../res/menu.csv", false);
-        PrintWriter pw = new PrintWriter(fw, false);
-        pw.flush();
-        pw.close();
-        fw.close();
-    
-        }catch(Exception exception){
+        try{
+            File myObj = new File("../../../res/menu.csv");
+            if(myObj.createNewFile()) {
+                return 1;
+            }
+            FileWriter fw = new FileWriter("../../../res/menu.csv", false);
+            PrintWriter pw = new PrintWriter(fw, false);
+            pw.flush();
+            pw.close();
+            fw.close();
+        
+            }catch(Exception exception){
 
-        }
-    return 0;
+            }
+        return 0;
     }
 }

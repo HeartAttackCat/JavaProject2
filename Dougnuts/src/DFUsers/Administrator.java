@@ -21,7 +21,7 @@ public class Administrator extends User{
      * @return exit case
      */
     @Override
-    int UInterface(){
+    int UInterface(Menu M){
         String str = "";
         char a = 'a';
         System.out.println("Welcome User!");
@@ -48,6 +48,7 @@ public class Administrator extends User{
                 default:
                     System.out.println("Error | Unknown input!");
             }
+        s.close();
         }
 
 

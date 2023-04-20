@@ -6,6 +6,7 @@
  */
 package DFUsers;
 import java.util.Scanner;
+import DoughnutFactory.*;
 
 
 public class Customer extends User{
@@ -24,7 +25,7 @@ public class Customer extends User{
      * @return exit status
      */
     @Override
-    int UInterface(){
+    int UInterface(Menu M){
         String str = "";
         char a = 'a';
         System.out.println("Welcome valued customer!");
@@ -43,7 +44,7 @@ public class Customer extends User{
             switch(a){
                 case 'a':
                 case 'A':
-                    ViewMenu();
+                    M.ViewMenu();
                     break;
 
                 case 'b':
@@ -59,7 +60,7 @@ public class Customer extends User{
                     System.out.println("Error | Unknown input!");
             }
         }
-
+        s.close();
 
         return 0;
     }
@@ -67,9 +68,9 @@ public class Customer extends User{
     /**
      * @brief prints out the entire menu for the user.
      */
-    void ViewMenu(){
+    // void ViewMenu(){
 
-    }
+    // }
 
     /**
      * @brief places an order.

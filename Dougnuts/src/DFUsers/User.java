@@ -6,6 +6,7 @@
  * inherit it.
  */
 package DFUsers;
+import DoughnutFactory.*;
 import java.util.Scanner;
 
 public class User {
@@ -27,7 +28,7 @@ public class User {
      * @note: All classes will need their own override.
      * @return exit status
      */
-    int UInterface(){
+    int UInterface(Menu M){
         String str = "";
         char a = 'a';
         System.out.println("Welcome User!");
