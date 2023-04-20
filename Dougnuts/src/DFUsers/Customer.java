@@ -5,32 +5,34 @@
  * @brief Class for user interactions by a customer.
  */
 package DFUsers;
+
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Scanner;
 import DoughnutFactory.*;
 
-
-public class Customer extends User{
+public class Customer extends User {
 
     /**
      * @brief constructor class for customer.
      */
-    public Customer(){
+    public Customer() {
         super();
     }
 
     /**
      * @brief user interface for the current class for inputting password. This
-     * iteration is for when the user first enters the system.
+     *        iteration is for when the user first enters the system.
      * @note: All classes will need their own override.
      * @return exit status
      */
     @Override
-    public int UInterface(Menu M){
+    public int UInterface(Menu M) {
         String str = "";
         char a = 'a';
         System.out.println("Welcome valued customer!");
         Scanner s = new Scanner(System.in);
-        while (a != 'z'){
+        while (a != 'z') {
             System.out.println("----");
             System.out.println("Choose one of the following options");
             System.out.println("-----");
@@ -38,10 +40,10 @@ public class Customer extends User{
             System.out.println("z. exit");
             System.out.print("Enter an input: ");
 
-            str = s.nextLine(); 
+            str = s.nextLine();
             a = str.charAt(0);
-            
-            switch(a){
+
+            switch (a) {
                 case 'a':
                 case 'A':
                     M.ViewMenu();
@@ -75,7 +77,15 @@ public class Customer extends User{
     /**
      * @brief places an order.
      */
-    void PlaceOrder(){
-
+    void PlaceOrder() {
+        try {
+            FileWriter myWriter = new FileWriter("Orders", true);
+            // TODO write person's order to Orders.csv
+            myWriter.close();
+            System.out.println("Successfully wrote Report.");
+        } catch (IOException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
     }
 }
