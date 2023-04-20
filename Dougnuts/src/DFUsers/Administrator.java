@@ -12,7 +12,7 @@ public class Administrator extends User{
     /**
      * @brief constructor class for the user
      */
-    Administrator(){
+    public Administrator(){
         super();
     }
 
