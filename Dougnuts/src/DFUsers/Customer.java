@@ -68,13 +68,6 @@ public class Customer extends User {
     }
 
     /**
-     * @brief prints out the entire menu for the user.
-     */
-    // void ViewMenu(){
-
-    // }
-
-    /**
      * @brief places an order.
      */
     void PlaceOrder() {

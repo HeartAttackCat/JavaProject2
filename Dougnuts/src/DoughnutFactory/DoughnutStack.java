@@ -16,11 +16,14 @@ public class DoughnutStack {
     /**
      * @brief constructor
      */
-    DoughnutStack(String Y, String M, String D, Doughnut t){
+    DoughnutStack(Date D, Doughnut t){
         quantity = 20;
-
-
-        
+        DoughnutType = t;
+        expire = D;
+        good = expire.ExpCheck();
+        if(good == false){
+            // Implement code in the senario where the doughnut is bad.
+        }        
     }
 
     /**

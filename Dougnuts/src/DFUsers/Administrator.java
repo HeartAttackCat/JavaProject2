@@ -31,7 +31,7 @@ public class Administrator extends User {
         Scanner s = new Scanner(System.in);
         while (a != 'z') {
             System.out.println("Choose one of the following options");
-            System.out.println("a. ");
+            System.out.println("a. Generate reports");
             System.out.println("z. exit");
             System.out.print("Enter an input: ");
 
@@ -42,6 +42,7 @@ public class Administrator extends User {
                 // Call functions from the menu class to represent adding, deleting, etc.
                 case 'a':
                 case 'A':
+                    GenerateReports();
                     break;
 
                 case 'z':
