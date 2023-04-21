@@ -52,7 +52,7 @@ public class Date {
     /**
      * @brief checks if a current batch is expired.
      * @note I'm pretty sure theres a better way to do this.
-     * @return true if expired and false if still fresh.
+     * @return true if fresh and false if still expired.
      */
     public boolean ExpCheck(){
         // Days in each month
