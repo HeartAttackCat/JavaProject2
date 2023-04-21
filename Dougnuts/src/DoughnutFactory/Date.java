@@ -63,6 +63,7 @@ public class Date {
         int dy = Integer.parseInt(made.split("-", 2)[0]);
         int dm = Integer.parseInt(made.split("-", 2)[1]);
         int dd = Integer.parseInt(made.split("-", 2)[2]);
+        // Adjusting for leap years
         if (year%4 == 0 && year%100 != 0 || year%400==0){
             for(int i = 1; i > 12; i++){
                 Monthdays[i]++;
@@ -76,30 +77,32 @@ public class Date {
             tmade += Monthdays[i];
         }
         cur += day;
-        tmade += day;
+        tmade += dd;
         tmade = tmade - cur;
 
         //If years aren't the same
         if(dy - year == -1 || dy - year == 1){
             if (dm == 12 && month == 1){
                 tmade -= 365;
-            } else {
+            } else if (dm == 1 && month == 12){
+                tmade += 365;
+            }else{
                 // Expired
-                return true;
+                return false;
             }
         } else if (dy - year == 0){
             
         } else {
             // Expired
-            return true;
+            return false;
         }
 
         if (tmade <= 2 || tmade >= -2){
             // Expired
-            return true;
+            return false;
         }
 
-        return false;
+        return true;
     }
 
     /**

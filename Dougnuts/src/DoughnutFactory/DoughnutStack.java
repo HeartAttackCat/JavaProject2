@@ -11,6 +11,7 @@ public class DoughnutStack {
     Doughnut DoughnutType;
     int quantity;
     Date expire;
+    boolean good;
 
     /**
      * @brief constructor
