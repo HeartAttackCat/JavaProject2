@@ -10,6 +10,7 @@ import DoughnutFactory.*;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.util.Scanner;
 import java.io.IOException;
 
 public class Employee extends User {
@@ -20,6 +21,44 @@ public class Employee extends User {
     public Employee() {
         super();
     }
+
+/**
+     * @brief user interface exclusive to admin class
+     * @return exit case
+     */
+    @Override
+    public int UInterface(Menu M, OrderHandler ords) {
+        String str = "";
+        char a = 'a';
+        System.out.println("Welcome User!");
+        Scanner s = new Scanner(System.in);
+        while (a != 'z') {
+            System.out.println("Choose one of the following options");
+            System.out.println("a. ");
+            System.out.println("z. exit");
+            System.out.print("Enter an input: ");
+
+            str = s.nextLine();
+            a = str.charAt(0);
+
+            switch (a) {
+                case 'a':
+                case 'A':
+                    break;
+
+                case 'z':
+                case 'Z':
+                    return 0;
+
+                default:
+                    System.out.println("Error | Unknown input!");
+            }
+            s.close();
+        }
+
+        return 0;
+    }
+
 
     /**
      * @brief shows the employee all pending orders.
@@ -66,7 +105,7 @@ public class Employee extends User {
                 myWriter.write(order[0] + order[1] + order[2] + order[3] + order[4] + order[5] + order[6] + order[7]);
                 myWriter.write("\n");
             }
-            
+
             myWriter.close();
             br.close();
         } catch (IOException e) {

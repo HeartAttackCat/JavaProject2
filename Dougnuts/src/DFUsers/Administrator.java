@@ -9,7 +9,7 @@ package DFUsers;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
-import DoughnutFactory.Menu;
+import DoughnutFactory.*;
 
 public class Administrator extends User {
     /**
@@ -24,7 +24,7 @@ public class Administrator extends User {
      * @return exit case
      */
     @Override
-    public int UInterface(Menu M) {
+    public int UInterface(Menu M, OrderHandler ords) {
         String str = "";
         char a = 'a';
         System.out.println("Welcome User!");

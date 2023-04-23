@@ -28,7 +28,7 @@ public class User {
      * @note: All classes will need their own override.
      * @return exit status
      */
-    public int UInterface(Menu M){
+    public int UInterface(Menu M, OrderHandler ords){
         String str = "";
         char a = 'a';
         System.out.println("Welcome User!");

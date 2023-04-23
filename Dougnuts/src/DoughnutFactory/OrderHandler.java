@@ -13,7 +13,7 @@ public class OrderHandler {
     /**
      * @brief constructor
      */
-    OrderHandler(){
+    public OrderHandler(){
         
     }
 

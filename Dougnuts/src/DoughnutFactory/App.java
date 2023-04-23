@@ -13,8 +13,9 @@ public class App {
     public static void main(String[] args) throws Exception {
         System.out.println(java.time.LocalDate.now());
         Menu Mu = new Menu();
+        OrderHandler OH = new OrderHandler();
         User per = new User();
-        int perm = per.UInterface(null);
+        int perm = per.UInterface(null, null);
 
         switch(perm){
             case 0:
@@ -32,7 +33,7 @@ public class App {
 
         // User interface
         while(perm != -1){
-            perm = per.UInterface(Mu);
+            perm = per.UInterface(Mu, OH);
         }
         
     }
