@@ -52,22 +52,22 @@ public class Administrator extends User {
 
                 case 'b':
                 case 'B':
-                    Mu.AddItem(str1, str2, a);
+                    M.AddItem(str1, str2, a);
                     break;
                 
                 case 'c':
                 case 'C':
-                    Mu.DeleteItem(str1, str2);
+                    M.DeleteItem(str1, str2);
                     break;
 
                 case 'd':
                 case 'D':
-                    Mu.EditItem(str1, str2);
+                    M.EditItem(str1, str2);
                     break;
 
                 case 'e':
                 case 'E':
-                    Mu.ViewMenu();
+                    M.ViewMenu();
                     break;
 
                 case 'z':
