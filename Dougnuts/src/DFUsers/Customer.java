@@ -51,7 +51,7 @@ public class Customer extends User {
 
                 case 'b':
                 case 'B':
-                    PlaceOrder();
+                    PlaceOrder(M, ords);
                     break;
 
                 case 'z':
@@ -69,8 +69,10 @@ public class Customer extends User {
 
     /**
      * @brief places an order.
+     * @param M Current Menu class
+     * @param ord orderhandler
      */
-    void PlaceOrder() {
+    void PlaceOrder(Menu M, OrderHandler ord) {
         try {
             FileWriter myWriter = new FileWriter("Orders", true);
             // TODO write person's order to Orders.csv

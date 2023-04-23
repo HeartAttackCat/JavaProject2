@@ -38,7 +38,16 @@ public class OrderHandler {
         return 0;
     }
 
+    /**
+     * @brief displays all recorded orders
+     * @return
+     */
     public int displayOrders(){
+        for(int i = 0 ; i < Orders.size(); i++){
+            System.out.println("-----");
+            System.out.println("Order Number: " + Orders.get(i).number);
+            // Finish later
+        }
         return 0;
     }
 }
