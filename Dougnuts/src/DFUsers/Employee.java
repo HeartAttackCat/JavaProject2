@@ -59,12 +59,14 @@ public class Employee extends User {
             FileWriter myWriter = new FileWriter("./Orders.csv", false);
             myWriter.write(br.readLine());
             line = br.readLine();
+
             while ((line = br.readLine()) != null) {
                 String[] order = line.split(splitBy);
                 myWriter.write("\n");
                 myWriter.write(order[0] + order[1] + order[2] + order[3] + order[4] + order[5] + order[6] + order[7]);
                 myWriter.write("\n");
             }
+            
             myWriter.close();
             br.close();
         } catch (IOException e) {

@@ -12,6 +12,7 @@ import DFUsers.*;
 public class App {
     public static void main(String[] args) throws Exception {
         System.out.println(java.time.LocalDate.now());
+        Menu Mu = new Menu();
         User per = new User();
         int perm = per.UInterface(null);
 
@@ -27,6 +28,11 @@ public class App {
             case 2:
                 per = new  Administrator();
                 break;
+        }
+
+        // User interface
+        while(perm != -1){
+            perm = per.UInterface(Mu);
         }
         
     }

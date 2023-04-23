@@ -40,7 +40,6 @@ public class Date {
      * @brief super function for when no information on date is provided.
      */
     Date(){
-        LocalDate today = java.time.LocalDate.now();
         String str = CurrentDate();
         year = Integer.parseInt(str.split("-", 2)[0]);
         month = Integer.parseInt(str.split("-", 2)[1]);
