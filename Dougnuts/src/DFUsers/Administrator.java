@@ -24,7 +24,7 @@ public class Administrator extends User {
      * @return exit case
      */
     @Override
-    public int UInterface(Menu M, OrderHandler ords, Menu Mu) {
+    public int UInterface(Menu M, OrderHandler ords) {
         String str1 = "";
         String str2 = "";
         char a = 'a';

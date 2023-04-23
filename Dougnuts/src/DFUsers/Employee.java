@@ -27,7 +27,7 @@ public class Employee extends User {
      * @return exit case
      */
     @Override
-    public int UInterface(Menu M, OrderHandler ords,  Menu Mu) {
+    public int UInterface(Menu M, OrderHandler ords) {
         String str = "";
         char a = 'a';
         System.out.println("Welcome User!");

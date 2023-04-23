@@ -195,4 +195,25 @@ public class Menu {
             }
         return 0;
     }
+
+    /**
+     * @brief Determines if an item is in the list
+     * @Note if time permits overhaul other functions to use this one.
+     * @param cat Catagory of Doughnut
+     * @param type Type of doughnut
+     * @return index if found | -1 if catagory doesn't exist | -2 if catagory
+     *  is real but type is not
+     */
+    public int IsItem(String cat, String type){
+        for(int i = 0; i < MenuItems.size();i++){
+            if (MenuItems.get(i).catagory.compareToIgnoreCase(cat) == 0){
+                if (MenuItems.get(i).Style.compareToIgnoreCase(type) == 0){
+                    return i;
+                }
+                return -2;
+            }
+        }
+
+        return -1;
+    }
 }
