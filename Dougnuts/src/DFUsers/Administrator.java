@@ -24,25 +24,50 @@ public class Administrator extends User {
      * @return exit case
      */
     @Override
-    public int UInterface(Menu M, OrderHandler ords) {
-        String str = "";
+    public int UInterface(Menu M, OrderHandler ords, Menu Mu) {
+        String str1 = "";
+        String str2 = "";
         char a = 'a';
         System.out.println("Welcome User!");
         Scanner s = new Scanner(System.in);
         while (a != 'z') {
             System.out.println("Choose one of the following options");
             System.out.println("a. Generate reports");
+            System.out.println("b. Add new a menu item");
+            System.out.println("c. Delete a menu item");
+            System.out.println("d. Edit a menu item.");
+            System.out.println("e. view menu");
             System.out.println("z. exit");
             System.out.print("Enter an input: ");
 
-            str = s.nextLine();
-            a = str.charAt(0);
+            str1 = s.nextLine();
+            a = str1.charAt(0);
 
             switch (a) {
                 // Call functions from the menu class to represent adding, deleting, etc.
                 case 'a':
                 case 'A':
                     GenerateReports();
+                    break;
+
+                case 'b':
+                case 'B':
+                    Mu.AddItem(str1, str2, a);
+                    break;
+                
+                case 'c':
+                case 'C':
+                    Mu.DeleteItem(str1, str2);
+                    break;
+
+                case 'd':
+                case 'D':
+                    Mu.EditItem(str1, str2);
+                    break;
+
+                case 'e':
+                case 'E':
+                    Mu.ViewMenu();
                     break;
 
                 case 'z':

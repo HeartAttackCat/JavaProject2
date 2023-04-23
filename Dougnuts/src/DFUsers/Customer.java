@@ -27,7 +27,7 @@ public class Customer extends User {
      * @return exit status
      */
     @Override
-    public int UInterface(Menu M, OrderHandler ords) {
+    public int UInterface(Menu M, OrderHandler ords,  Menu Mu) {
         String str = "";
         char a = 'a';
         System.out.println("Welcome valued customer!");

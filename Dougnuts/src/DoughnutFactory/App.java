@@ -15,7 +15,7 @@ public class App {
         Menu Mu = new Menu();
         OrderHandler OH = new OrderHandler();
         User per = new User();
-        int perm = per.UInterface(null, null);
+        int perm = per.UInterface(null, null, null);
 
         switch(perm){
             case 0:
@@ -33,7 +33,7 @@ public class App {
 
         // User interface
         while(perm != -1){
-            perm = per.UInterface(Mu, OH);
+            perm = per.UInterface(Mu, OH, Mu);
         }
         
     }

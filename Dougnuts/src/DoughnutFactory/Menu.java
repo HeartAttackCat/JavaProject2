@@ -21,7 +21,7 @@ public class Menu {
      * @brief super function for menu class. Imports Menu.csv to load values for each item
      * in the array list.
      */
-    Menu(){
+    public Menu(){
         String str;
 		String catagory;
 		String type;
@@ -77,6 +77,7 @@ public class Menu {
      */
     public int AddItem(String CatName, String Iname, float c){
         MenuItems.add(new Doughnut(CatName, Iname, c, 0));
+        SaveChanges();
         return 0;
     }
 
@@ -92,9 +93,11 @@ public class Menu {
         for(int i = 0; i < MenuItems.size(); i++){
             if(CatName.compareTo(MenuItems.get(i).catagory) == 0 && Iname.compareTo(MenuItems.get(i).Style) == 0){
                 MenuItems.remove(i);
+                SaveChanges();
                 return 0;
             }
         }
+        SaveChanges();
         return 1;
     }
     
@@ -107,9 +110,11 @@ public class Menu {
         for(int i = 0; i < MenuItems.size(); i++){
             if(CatName.compareTo(MenuItems.get(i).catagory) == 0 && Iname.compareTo(MenuItems.get(i).Style) == 0){
                 UpdateItem(i);
+                SaveChanges();
                 return 0;
             }
         }
+        SaveChanges();
         return 1;
     }
 
@@ -141,6 +146,7 @@ public class Menu {
         // Resets quantity
         MenuItems.get(index).count = 0;
         s.close();
+        SaveChanges();
     }
 
     
