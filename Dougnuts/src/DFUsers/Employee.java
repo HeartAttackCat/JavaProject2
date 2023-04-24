@@ -25,13 +25,16 @@ public class Employee extends User {
     @Override
     public int UInterface(Menu M, OrderHandler ords) {
         String str = "";
+        String str2 = "";
         char a = 'a';
+        int index = 0;
         System.out.println("Welcome User!");
         Scanner s = new Scanner(System.in);
         while (a != 'z') {
             System.out.println("Choose one of the following options");
             System.out.println("a. Display all orders");
             System.out.println("b. Update an order");
+            System.out.println("c. Add new stack to inventory");
             System.out.println("z. exit");
             System.out.print("Enter an input: ");
 
@@ -47,6 +50,22 @@ public class Employee extends User {
                 case 'b':
                 case 'B':
                     UpdateOrder(ords);
+                    break;
+
+                case 'c':
+                case 'C':
+                    System.out.print("Enter the doughnut catagory we are adding: ");
+                    str = s.nextLine();
+                    System.out.print("Enter the doughnut style we are adding: ");
+                    str2 = s.nextLine();
+
+                    index = M.IsItem(str, str2);
+                    if (index >= 0){
+                        ords.inv.newstack(str, str2, M);
+                    } else {
+                        System.out.println("Error | Doughnut does not exist on menu.");
+                    }
+                    break;
 
                 case 'z':
                 case 'Z':
