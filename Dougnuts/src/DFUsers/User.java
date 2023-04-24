@@ -47,14 +47,12 @@ public class User {
             switch (a) {
                 case 'a':
                 case 'A':
-                    
                     return 0;
 
                 case 'b':
                 case 'B':
                     System.out.print("Enter password: ");
                     str = s.nextLine();
-                    
                     return LogIn(str);
 
                 case 'z':

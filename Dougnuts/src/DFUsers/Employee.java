@@ -73,6 +73,7 @@ public class Employee extends User {
                 default:
                     System.out.println("Error | Unknown input!");
             }
+            
         }
 
         return 0;
