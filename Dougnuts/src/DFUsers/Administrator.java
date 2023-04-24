@@ -27,6 +27,7 @@ public class Administrator extends User {
         String str1 = "";
         String str2 = "";
         char a = 'a';
+        int num = 2023;
         System.out.println("Welcome User!");
         Scanner s = new Scanner(System.in);
         while (a != 'z') {
@@ -46,7 +47,7 @@ public class Administrator extends User {
                 // Call functions from the menu class to represent adding, deleting, etc.
                 case 'a':
                 case 'A':
-                    GenerateReports();
+                    GenerateReports(ords, num);
                     break;
 
                 case 'b':
@@ -86,23 +87,108 @@ public class Administrator extends User {
      * @brief generates sales data reports.
      *        Todo: Last part of user functionally that needs to be added.
      */
-    void GenerateReports() {
-        Salesrep();
-        ExpRep();
+    void GenerateReports(OrderHandler ords, int year) {
+        Salesrep(ords, year);
+        ExpRep(ords, year);
     }
 
     /**
      * @brief generates the sales reports.
      */
-    void Salesrep(){
+    void Salesrep(OrderHandler ords, int year) {
+        Date d = new Date();
+        String repname = "salesrep" + String.valueOf(year) + ".txt";
+        File fp = new File(repname);
+        String Winfo = "";
 
+        int y;
+        float TotalY = 0;
+        float totalM[] = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+
+        // Creates file
+        try {
+            fp.createNewFile();
+        } catch (IOException e) {
+        }
+
+        for (int i = 0; i < ords.inv.binv.size(); i++) {
+            y = ords.inv.binv.get(i).expire.year;
+            if (y == year) {
+                totalM[ords.inv.binv.get(i).expire.month] += ords.inv.binv.get(i).quantity;
+                TotalY += ords.inv.binv.get(i).quantity;
+            }
+        }
+
+        // Generates file
+        try {
+            FileWriter fw = new FileWriter(fp, false);
+            Winfo = String.valueOf(TotalY);
+            Winfo = Winfo + " total doughnuts were tossed in the year " + String.valueOf(year);
+            fw.write(Winfo);
+            fw.write("\nMonth\t|\tTotal tossed\n");
+            for (int i = 0; i < 12; i++) {
+                Winfo = String.valueOf(i);
+                Winfo = Winfo + "\t|\t";
+                Winfo = Winfo + String.valueOf(totalM[i]);
+                Winfo = Winfo + "\n";
+                fw.write(Winfo);
+            }
+            Winfo = String.valueOf(TotalY / 52) + " doughnuts on average were tossed each week.";
+            fw.write(Winfo);
+
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
     }
 
     /**
      * @brief generates the expired reports.
      */
-    void ExpRep(){
+    void ExpRep(OrderHandler ords, int year) {
+        Date d = new Date();
+        String repname = "Expiredrep" + String.valueOf(year) + ".txt";
+        File fp = new File(repname);
+        String Winfo = "";
 
+        int y;
+        int TotalY = 0;
+        int totalM[] = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+
+        // Creates file
+        try {
+            fp.createNewFile();
+        } catch (IOException e) {
+        }
+
+        for (int i = 0; i < ords.inv.binv.size(); i++) {
+            y = ords.inv.binv.get(i).expire.year;
+            if (y == year) {
+                totalM[ords.inv.binv.get(i).expire.month] += ords.inv.binv.get(i).quantity;
+                TotalY += ords.inv.binv.get(i).quantity;
+            }
+        }
+
+        // Generates file
+        try {
+            FileWriter fw = new FileWriter(fp, false);
+            Winfo = String.valueOf(TotalY);
+            Winfo = Winfo + " total doughnuts were tossed in the year " + String.valueOf(year);
+            fw.write(Winfo);
+            fw.write("\nMonth\t|\tTotal tossed\n");
+            for (int i = 0; i < 12; i++) {
+                Winfo = String.valueOf(i);
+                Winfo = Winfo + "\t|\t";
+                Winfo = Winfo + String.valueOf(totalM[i]);
+                Winfo = Winfo + "\n";
+                fw.write(Winfo);
+            }
+            Winfo = String.valueOf(TotalY / 52) + " doughnuts on average were tossed each week.";
+            fw.write(Winfo);
+
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
     }
-
 }

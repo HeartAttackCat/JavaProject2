@@ -13,7 +13,7 @@ package DoughnutFactory;
 public class DoughnutStack {
     public Doughnut DoughnutType;
     public int quantity;
-    Date expire;
+    public Date expire;
     boolean good;
 
     /**

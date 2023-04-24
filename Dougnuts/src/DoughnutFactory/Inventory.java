@@ -12,8 +12,8 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Inventory {
-    ArrayList<DoughnutStack> ginv = new ArrayList<DoughnutStack>();
-    ArrayList<DoughnutStack> binv = new ArrayList<DoughnutStack>();
+    public ArrayList<DoughnutStack> ginv = new ArrayList<DoughnutStack>();
+    public ArrayList<DoughnutStack> binv = new ArrayList<DoughnutStack>();
 
     /**
      * @brief constructor class
@@ -92,29 +92,28 @@ public class Inventory {
         return 0;
     }
 
-    public int InvRequest(String cat, String sty, int cont, Menu M){
+    public int InvRequest(String cat, String sty, int cont, Menu M) {
         int index;
-        while(cont > 0){
+        while (cont > 0) {
             index = searchginv(cat, sty);
-            if (index == -1){
+            if (index == -1) {
                 // Assumed employee will validate to add more.
                 newstack(cat, sty, M);
-            } else if (cont > ginv.get(index).quantity){
+            } else if (cont > ginv.get(index).quantity) {
                 cont -= ginv.get(index).quantity;
                 ginv.get(index).quantity = 0;
             } else {
                 ginv.get(index).quantity -= cont;
                 cont = 0;
             }
-            
+
         }
         return 0;
     }
 
-
     /**
      * @brief takes from a specified stack
-     * @param rm how much is being removed.
+     * @param rm    how much is being removed.
      * @param index the index from ginv we are removing from.
      * @return
      */
@@ -124,16 +123,17 @@ public class Inventory {
     }
 
     /**
-     * @brief searches inventory for a specified item that currently has doughnuts in it
+     * @brief searches inventory for a specified item that currently has doughnuts
+     *        in it
      * @param cat
      * @param style
      * @return
      */
-    public int searchginv(String cat, String style){
-        for(int i = 0; i < ginv.size(); i++){
-            if (ginv.get(i).DoughnutType.catagory.compareToIgnoreCase(cat) == 0){
-                if (ginv.get(i).DoughnutType.Style.compareToIgnoreCase(cat) == 0){
-                    if(ginv.get(i).quantity > 0){
+    public int searchginv(String cat, String style) {
+        for (int i = 0; i < ginv.size(); i++) {
+            if (ginv.get(i).DoughnutType.catagory.compareToIgnoreCase(cat) == 0) {
+                if (ginv.get(i).DoughnutType.Style.compareToIgnoreCase(cat) == 0) {
+                    if (ginv.get(i).quantity > 0) {
                         return i;
                     }
                 }
@@ -160,7 +160,7 @@ public class Inventory {
                     Winfo += ",";
                     Winfo += binv.get(i).DoughnutType.Style;
                     Winfo += ",";
-                    if(binv.get(i).quantity < 10){
+                    if (binv.get(i).quantity < 10) {
                         zadj = "0" + String.valueOf(binv.get(i).quantity);
                     } else {
                         zadj = String.valueOf(binv.get(i).quantity);
@@ -179,7 +179,7 @@ public class Inventory {
                     Winfo += ",";
                     Winfo += ginv.get(i).DoughnutType.Style;
                     Winfo += ",";
-                    if(binv.get(i).quantity < 10){
+                    if (binv.get(i).quantity < 10) {
                         zadj = "0" + String.valueOf(binv.get(i).quantity);
                     } else {
                         zadj = String.valueOf(binv.get(i).quantity);

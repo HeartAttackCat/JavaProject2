@@ -9,9 +9,9 @@ package DoughnutFactory;
 import java.time.LocalDate;
 
 public class Date {
-    int day;
-    int month;
-    int year;
+    public int day;
+    public int month;
+    public int year;
 
     /**
      * @brief converts the current date into a string
@@ -30,7 +30,7 @@ public class Date {
      * @param month the user inputed month
      * @param day   the user inputed day
      */
-    Date(int year, int month, int day) {
+    public Date(int year, int month, int day) {
         this.year = year;
         this.month = month;
         this.day = day;
@@ -39,7 +39,7 @@ public class Date {
     /**
      * @brief super function for when no information on date is provided.
      */
-    Date() {
+    public Date() {
         String str = CurrentDate();
         year = Integer.parseInt(str.split("-", 2)[0]);
         month = Integer.parseInt(str.split("-", 2)[1]);

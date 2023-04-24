@@ -2,7 +2,6 @@
     Note:   we can break this apart into different reports.
             - Sells
             - expired
-1.5 init OrderHandler
 2. Update class  diagram
 3. DEBUG
     a. fix file reading problem
