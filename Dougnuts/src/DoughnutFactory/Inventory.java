@@ -49,7 +49,7 @@ public class Inventory {
                 type = str.split(",", 4)[1];
                 date = str.split(",", 4)[2];
                 quant = Integer.parseInt(str.split(",", 4)[3]);
-                price = Float.parseFloat(str.split(",", 4)[4])
+                price = Float.parseFloat(str.split(",", 4)[4]);
 
                 year = Integer.parseInt(date.split("-", 3)[0]);
                 month = Integer.parseInt(date.split("-", 3)[1]);
