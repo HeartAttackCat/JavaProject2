@@ -41,24 +41,27 @@ public class OrderHandler {
         // Loads the file
         try {
             fp = new Scanner(new File("./Dougnuts/res/Orders.csv"));
+            fp.nextLine();
             while (fp.hasNextLine()) {
                 str = fp.nextLine();
                 ID = str.split(",", 5)[0];
                 try {
                     price = Float.parseFloat(str.split(",", 5)[1]);
                     quantity = Integer.parseInt(str.split(",", 5)[2]);
-                    status = Integer.parseInt(str.split(",", 5)[3]);
+                    // status = Integer.parseInt(str.split(",", 5)[3]);
                 } catch (NumberFormatException e) {
                     System.out.println("Ignoring...");
                 }
                 
-                date = str.split(",", 5)[4];
-                items = str.split(",", 5)[5];
+                date = str.split(",", 5)[3];
+                items = str.split(",", 5)[4];
 
                 // Builds date;
-                year = Integer.parseInt(date.split("-", 2)[0]);
-                month = Integer.parseInt(date.split("-", 2)[1]);
-                day = Integer.parseInt(date.split("-", 2)[2]);
+                System.out.println(date);
+                System.out.println(date.split("-", 3)[1]);
+                year = Integer.parseInt(date.split("-", 3)[0]);
+                month = Integer.parseInt(date.split("-", 3)[1]);
+                day = Integer.parseInt(date.split("-", 3)[2]);
                 tmp = new Date(year, month, day);
 
                 // Builds the person's order items
@@ -161,7 +164,7 @@ public class OrderHandler {
             str = str + Orders.get(index).items.get(i).quantity;
             // Seperates each seperate item group.
             str = str + "=";
-        }
+       }
         // Do Not Read
         str = str + "DNR";
 

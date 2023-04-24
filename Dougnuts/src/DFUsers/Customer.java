@@ -35,7 +35,8 @@ public class Customer extends User {
             System.out.println("----");
             System.out.println("Choose one of the following options");
             System.out.println("-----");
-            System.out.println("a. ");
+            System.out.println("a. View Menu");
+            System.out.println("b. Place Order");
             System.out.println("z. exit");
             System.out.print("Enter an input: ");
 

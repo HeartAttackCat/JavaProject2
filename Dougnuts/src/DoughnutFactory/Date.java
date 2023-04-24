@@ -41,9 +41,9 @@ public class Date {
      */
     public Date() {
         String str = CurrentDate();
-        year = Integer.parseInt(str.split("-", 2)[0]);
-        month = Integer.parseInt(str.split("-", 2)[1]);
-        day = Integer.parseInt(str.split("-", 2)[2]);
+        year = Integer.parseInt(str.split("-", 3)[0]);
+        month = Integer.parseInt(str.split("-", 3)[1]);
+        day = Integer.parseInt(str.split("-", 3)[2]);
     }
 
     /**
