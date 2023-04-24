@@ -61,6 +61,7 @@ public class Employee extends User {
 
     /**
      * @brief shows the employee all pending orders.
+     *        Todo: Update to use orderhandler instead of IO.
      */
     public void ViewOrders(OrderHandler ords) {
         String line = "";

@@ -10,7 +10,6 @@ public class Doughnut {
     public String Style;
     public String catagory;
     public float Cost;
-    int count;
 
     /**
      * @brief constructor class
@@ -19,11 +18,10 @@ public class Doughnut {
      * @param c   Cost of the doughnut
      * @param x   quantity of doughnuts; This is temporary.
      */
-    public Doughnut(String St, String Cat, float c, int x) {
+    public Doughnut(String St, String Cat, float c) {
         Style = St;
         catagory = Cat;
         Cost = c;
-        count = x;
     }
 
 }

@@ -121,8 +121,8 @@ public class Customer extends User {
                         if (index >= 0) {
                             System.out.print("How many would you like: ");
                             quant = sc.nextInt();
-                            price = price + (M.GetPrice(index) * quant);
-                            temp = new Doughnut(str2, str1, price, quant);
+                            price = M.GetPrice(index);
+                            temp = new Doughnut(str2, str1, price);
                             cord.add(new DoughnutStack(temp, quant));
                         } else {
                             System.out.println("Error | invalid item");

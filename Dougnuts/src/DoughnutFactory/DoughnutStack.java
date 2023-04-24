@@ -4,6 +4,9 @@
  * @assignment Project 2
  * @brief Class that manages the doughnut stack for various types on a person's
  * order.
+ * 
+ * TODO: add functions for the individual stacks and operations with removing and adding doughnuts from them
+ *      Generate two reports Expired and Good. Update good upon exiting and expired upon opening.
  */
 package DoughnutFactory;
 

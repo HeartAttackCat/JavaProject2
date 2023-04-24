@@ -14,8 +14,6 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import javafx.scene.control.MenuItem;
-
 public class Menu {
     ArrayList<Doughnut> MenuItems = new ArrayList<>();
 
@@ -29,7 +27,6 @@ public class Menu {
         String catagory;
         String type;
         String price;
-        String cont;
         ArrayList<String> data = new ArrayList<>();
 
         for (int i = 0; i < 4; i++) {
@@ -48,8 +45,7 @@ public class Menu {
                 catagory = str.split(",", 4)[0];
                 type = str.split(",", 4)[1];
                 price = str.split(",", 4)[3];
-                cont = str.split(",", 4)[4];
-                MenuItems.add(new Doughnut(catagory, type, Float.valueOf(price), Integer.valueOf(cont)));
+                MenuItems.add(new Doughnut(catagory, type, Float.valueOf(price)));
             }
             fp.close();
         } catch (FileNotFoundException e) {
@@ -61,11 +57,11 @@ public class Menu {
      * @brief Prints out the entire menu.
      */
     public void ViewMenu() {
-        System.out.println("Type\tItem\tPrice\tQuantity");
+        System.out.println("Type\tItem\tPrice");
         for (int i = 0; i > MenuItems.size(); i++) {
             System.out.print(MenuItems.get(i).catagory + "\t");
             System.out.print(MenuItems.get(i).Style + "\t");
-            System.out.println(MenuItems.get(i).Cost + "\t" + MenuItems.get(i).count);
+            System.out.println(MenuItems.get(i).Cost);
         }
 
     }
@@ -79,7 +75,7 @@ public class Menu {
      * @return if successful return 0
      */
     public int AddItem(String CatName, String Iname, float c) {
-        MenuItems.add(new Doughnut(CatName, Iname, c, 0));
+        MenuItems.add(new Doughnut(CatName, Iname, c));
         SaveChanges();
         return 0;
     }
@@ -146,9 +142,6 @@ public class Menu {
         System.out.print("What is the new item cost: ");
         str = s.nextLine();
         MenuItems.get(index).Cost = Float.parseFloat(str);
-
-        // Resets quantity
-        MenuItems.get(index).count = 0;
         s.close();
         SaveChanges();
     }
@@ -168,7 +161,7 @@ public class Menu {
             for (int i = 0; i < MenuItems.size(); i++) {
                 str = "";
                 str = MenuItems.get(i).catagory + MenuItems.get(i).Style;
-                str = str + String.valueOf(MenuItems.get(i).Cost) + String.valueOf(MenuItems.get(i).count);
+                str = str + String.valueOf(MenuItems.get(i).Cost);
             }
             fp.close();
         } catch (Exception e) {
