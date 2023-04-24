@@ -16,7 +16,7 @@ public class OrderHandler {
      * @brief constructor
      */
     public OrderHandler() {
-
+        // Load from Orders.csv
     }
 
     /**
@@ -39,7 +39,8 @@ public class OrderHandler {
             for (int i = 0; i < Orders.size(); i++) {
                 str = Orders.get(i).number + String.valueOf(Orders.get(i).TotalPrice);
                 str = str + String.valueOf(Orders.get(i).TotalQuantity) + Orders.get(i).status;
-                str = str + Orders.get(i).date.DateToString();
+                str = str + Orders.get(i).date.DateToString() + '\n';
+                fp.write(str);
             }
             fp.close();
         } catch (Exception e) {
