@@ -6,5 +6,7 @@
     Note:   we can break this apart into different reports.
             - Sells
             - expired
-3. DEBUG
+3. Update class  diagram
+4. DEBUG
     a. fix file reading problem
+    b. Figure out the the most devestating bugs
