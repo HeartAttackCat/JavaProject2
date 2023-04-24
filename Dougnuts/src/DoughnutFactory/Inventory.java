@@ -100,6 +100,7 @@ public class Inventory {
     }
 
     public void SaveInv() {
+        String zadj = "0";
         String Winfo = "Catagory,style,quantity,date,price";
         try {
             RandomAccessFile raf = new RandomAccessFile("./res/inv.csv", "rws");
@@ -110,9 +111,18 @@ public class Inventory {
                 for (int i = 0; i < binv.size(); i++) {
                     Winfo = ("\n");
                     Winfo += binv.get(i).DoughnutType.catagory;
+                    Winfo += ",";
                     Winfo += binv.get(i).DoughnutType.Style;
-                    Winfo += String.valueOf(binv.get(i).quantity);
+                    Winfo += ",";
+                    if(binv.get(i).quantity < 10){
+                        zadj = "0" + String.valueOf(binv.get(i).quantity);
+                    } else {
+                        zadj = String.valueOf(binv.get(i).quantity);
+                    }
+                    Winfo += zadj;
+                    Winfo += ",";
                     Winfo += binv.get(i).expire.DateToString();
+                    Winfo += ",";
                     Winfo += String.valueOf(binv.get(i).DoughnutType.Cost);
                     raf.writeBytes(Winfo);
                 }
@@ -120,9 +130,18 @@ public class Inventory {
                 for (int i = 0; i < binv.size(); i++) {
                     Winfo = ("\n");
                     Winfo += ginv.get(i).DoughnutType.catagory;
+                    Winfo += ",";
                     Winfo += ginv.get(i).DoughnutType.Style;
-                    Winfo += String.valueOf(ginv.get(i).quantity);
+                    Winfo += ",";
+                    if(binv.get(i).quantity < 10){
+                        zadj = "0" + String.valueOf(binv.get(i).quantity);
+                    } else {
+                        zadj = String.valueOf(binv.get(i).quantity);
+                    }
+                    Winfo += zadj;
+                    Winfo += ",";
                     Winfo += ginv.get(i).expire.DateToString();
+                    Winfo += ",";
                     Winfo += String.valueOf(ginv.get(i).DoughnutType.Cost);
                     raf.writeBytes(Winfo);
                 }
