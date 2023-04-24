@@ -6,6 +6,7 @@
  */
 package DoughnutFactory;
 import java.util.ArrayList;
+import java.io.*;
 
 public class OrderHandler {
     ArrayList<Order> Orders = new ArrayList<Order>();
@@ -27,10 +28,22 @@ public class OrderHandler {
     }
     
     public int saveOrders(){
-        return 0;
-    }
+        try {
+            // Clears file or creates a new if it doesn't exist
+            String str = "";
+            FileWriter fp = new FileWriter("../../res/menu.csv", false);
+            fp.write("catagory,style,price,quantity");
 
-    public int loadOrders(){
+            //Begins writing
+            for(int i = 0; i < Orders.size(); i++){
+                str = Orders.get(i).number + String.valueOf(Orders.get(i).TotalPrice);
+                str = str + String.valueOf(Orders.get(i).TotalQuantity) + Orders.get(i).status;
+                str = str + Orders.get(i).date.DateToString();
+            }
+            fp.close();
+        } catch (Exception e) {
+            // TODO: handle exception
+        }
         return 0;
     }
 
