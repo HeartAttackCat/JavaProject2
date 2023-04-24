@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.io.*;
 
 public class OrderHandler {
-    ArrayList<Order> Orders = new ArrayList<Order>();
+    public ArrayList<Order> Orders = new ArrayList<Order>();
 
     /**
      * @brief constructor
@@ -55,18 +55,45 @@ public class OrderHandler {
 
     /**
      * @brief displays all recorded orders
-     * @return
+     * @return 0
      */
     public int displayOrders() {
         for (int i = 0; i < Orders.size(); i++) {
-            System.out.println("-----");
-            System.out.println("Order Number: " + Orders.get(i).number);
-            // Finish later
+            Orders.get(i).displayOrder();
         }
         return 0;
     }
 
+    /**
+     * @brief displays only the pending orders.
+     * @return
+     */
+    public int DisplayPendingCondense() {
+        System.out.println("Pending orders:");
+        System.out.println("-----");
+        for (int i = 0; i < Orders.size(); i++) {
+            if (Orders.get(i).status == 0) {
+                System.out.print(i + " ");
+                Orders.get(i).ONumberDisplay();
+            }
+        }
+        System.out.println("-----");
+        return 0;
+    }
+
+    /**
+     * @brief gets the size of an order for generating the order number
+     * @return The size of the list
+     */
     public int getsize() {
         return Orders.size();
+    }
+
+    /**
+     * @brief Marks the specified order as complete
+     * @param index The index we are updating.
+     */
+    public void CompleteOrder(int index) {
+        Orders.get(index).MarkComplete();
     }
 }

@@ -85,6 +85,7 @@ public class Administrator extends User {
 
     /**
      * @brief generates sales data reports.
+     *        Todo: Last part of user functionally that needs to be added.
      */
     void GenerateReports() {
         try {

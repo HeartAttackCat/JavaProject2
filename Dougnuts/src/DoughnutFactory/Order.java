@@ -44,7 +44,7 @@ public class Order {
         System.out.println("Order number: " + number);
         System.out.println(date.DateToString());
         System.out.println("Price: " + TotalPrice);
-        System.out.println(TotalQuantity + "Item(s) ordered");
+        System.out.println(TotalQuantity + " Item(s) ordered");
         for (int i = 0; i < items.size(); i++) {
             System.out.println(items.get(i).DoughnutType + ": " + items.get(i).getQuantity());
         }
@@ -54,6 +54,17 @@ public class Order {
             System.out.println("Order has been finished.");
         }
         System.out.println("-----");
+    }
+
+    public void ONumberDisplay() {
+        System.out.println(number);
+    }
+
+    /**
+     * @brief updates the order to complete
+     */
+    void MarkComplete() {
+        status = 1;
     }
 
 }
