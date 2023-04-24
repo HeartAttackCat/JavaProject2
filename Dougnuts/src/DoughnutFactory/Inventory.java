@@ -12,16 +12,16 @@ import java.util.ArrayList;
 public class Inventory {
     ArrayList<DoughnutStack> inv = new ArrayList<DoughnutStack>();
 
-    /** 
+    /**
      * @brief constructor class
-     * TODO:
-     * Read from inventory file and initalize
-     * check if expired | Yes? skip this line | No? add into arraylist
+     *        TODO:
+     *        Read from inventory file and initalize
+     *        check if expired | Yes? skip this line | No? add into arraylist
      */
-    public Inventory(){
+    public Inventory() {
     }
 
-    public int newitem(){
+    public int newitem() {
         return 0;
     }
 

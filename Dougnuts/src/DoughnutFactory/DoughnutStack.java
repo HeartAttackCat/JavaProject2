@@ -8,29 +8,40 @@
 package DoughnutFactory;
 
 public class DoughnutStack {
-    Doughnut DoughnutType;
-    int quantity;
+    public Doughnut DoughnutType;
+    public int quantity;
     Date expire;
     boolean good;
 
     /**
-     * @brief constructor
+     * @brief constructor for newly backed stacks
      */
-    DoughnutStack(Date D, Doughnut t){
+    DoughnutStack(Date D, Doughnut t) {
         quantity = 20;
         DoughnutType = t;
         expire = D;
         good = expire.ExpCheck();
-        if(good == false){
+        if (good == false) {
             // Implement code in the senario where the doughnut is bad.
-        }        
+        }
+    }
+
+    /**
+     * @breif Constructor for customer orders
+     */
+    public DoughnutStack(Doughnut t, int quant) {
+        expire = new Date();
+        DoughnutType = t;
+        quantity = quant;
+        // Assumed because customer is ordering it was already checked to be good.
+        good = true;
     }
 
     /**
      * @brief returns the current quantity
      * @return The current quantity
      */
-    public int getQuantity(){
+    public int getQuantity() {
         return this.quantity;
     }
 
@@ -38,7 +49,7 @@ public class DoughnutStack {
      * @breif updates the quantity of the type ordered
      * @param quantity the new quantity
      */
-    public void setQuantity(int quantity){
+    public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
 
@@ -46,7 +57,7 @@ public class DoughnutStack {
      * @breif gets the doughnut type
      * @return the doughtnut type
      */
-    public Doughnut getType(){
+    public Doughnut getType() {
         return DoughnutType;
     }
 
@@ -56,5 +67,14 @@ public class DoughnutStack {
      */
     public void setType(Doughnut type) {
         this.DoughnutType = type;
+    }
+
+    /**
+     * @brief expanded version that prints the current dought stack.
+     */
+    public void PrintStackInfo() {
+        System.out.println(DoughnutType.catagory + " " + DoughnutType.Style);
+        System.out.println("Quantity: " + quantity);
+        System.out.println("Price: " + (DoughnutType.Cost * quantity));
     }
 }

@@ -6,8 +6,6 @@
  */
 package DFUsers;
 
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.Scanner;
 import java.util.ArrayList;
 import DoughnutFactory.*;
@@ -70,50 +68,131 @@ public class Customer extends User {
 
     /**
      * @brief places an order.
-     * @param M Current Menu class
+     * @param M   Current Menu class
      * @param ord orderhandler
+     *            TODO: Check if an item is currently avaible.
      */
     void PlaceOrder(Menu M, OrderHandler ord) {
         char a = '-';
-        String str = "";
+        int quant = 0;
+        int index = 0;
+        float price = 0;
+
+        Order neword;
+        Doughnut temp;
+        String str1 = "";
+        String str2 = "";
         Scanner sc = new Scanner(System.in);
+
         ArrayList<DoughnutStack> cord = new ArrayList<DoughnutStack>();
 
-        while(a != 'z'){
+        while (a != 'z') {
             while (a != 'z') {
                 System.out.println("----");
                 System.out.println("Choose one of the following options");
                 System.out.println("-----");
                 System.out.println("a. View Menu");
                 System.out.println("b. Add item to order");
-                System.out.println("c. Finalize order");
+                System.out.println("c. View current order");
+                System.out.println("d. remove item");
+                System.out.println("e. Finalize order");
                 System.out.println("z. exit");
                 System.out.print("Enter an input: ");
-    
-                str = sc.nextLine();
-                a = str.charAt(0);
-    
+
+                str1 = sc.nextLine();
+                a = str1.charAt(0);
+
                 switch (a) {
+                    // Views menu
                     case 'a':
                     case 'A':
                         M.ViewMenu();
                         break;
-    
+
+                    // Adds an item to the cart
                     case 'b':
                     case 'B':
+                        System.out.print("Please enter the item's catagory: ");
+                        str1 = sc.nextLine();
+                        System.out.print("Please enter the item's sub catagory: ");
+                        str2 = sc.nextLine();
+                        index = M.IsItem(str1, str2);
+
+                        if (index >= 0) {
+                            System.out.print("How many would you like: ");
+                            quant = sc.nextInt();
+                            price = price + (M.GetPrice(index) * quant);
+                            temp = new Doughnut(str2, str1, price, quant);
+                            cord.add(new DoughnutStack(temp, quant));
+                        } else {
+                            System.out.println("Error | invalid item");
+                        }
+
                         break;
-    
+
+                    // prints out current cart
+                    case 'c':
+                    case 'C':
+                        System.out.println("Your current order:");
+                        System.out.println("-----");
+                        for (int i = 0; i < cord.size(); i++) {
+                            System.out.println("-----");
+                            cord.get(i).PrintStackInfo();
+                            System.out.println("-----");
+                        }
+                        System.out.println("-----");
+                        System.out.println("Total Price: " + price);
+                        break;
+
+                    // Deletes an item from the cart
+                    case 'd':
+                    case 'D':
+                        // Prints out condensed version of current cart.
+                        for (int i = 0; i < cord.size(); i++) {
+                            System.out.print(i + ". " + cord.get(i).DoughnutType.catagory + " "
+                                    + cord.get(i).DoughnutType.Style);
+                            System.out.print(" " + (cord.get(i).quantity * cord.get(i).DoughnutType.Cost));
+                        }
+
+                        System.out.println("Please enter which option you'd like to remove: ");
+                        index = sc.nextInt();
+
+                        if (index > cord.size() && index >= 0) {
+                            cord.remove(index);
+                        } else {
+                            System.out.println("Error item does not exist");
+                        }
+
+                        break;
+
+                    // Creates new order and exits order menu.
+                    /**
+                     * @note: If this was a real payment system for an actual doughnut factory this
+                     *        is where the customer would pay
+                     *        but because this isn't a real system. It is assumed the order will be
+                     *        properly paid due to limitations.
+                     */
+                    case 'e':
+                    case 'E':
+                        // Sets a to z to exit out of order
+                        a = 'z';
+                        neword = new Order(ord.getsize(), cord);
+                        System.out.println("Thank you for shopping with us!");
+                        System.out.println("Your order will be completed shortly. Order number: " + neword.number);
+                        ord.CreateOrder(neword);
+                        break;
+
+                    // Exits order menu.
                     case 'z':
                     case 'Z':
                         a = 'z';
                         break;
-    
+
                     default:
                         System.out.println("Error | Unknown input!");
                 }
             }
         }
-
 
     }
 }

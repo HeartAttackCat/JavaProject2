@@ -6,6 +6,7 @@
  * inherit it.
  */
 package DFUsers;
+
 import DoughnutFactory.*;
 import java.util.Scanner;
 
@@ -18,37 +19,37 @@ public class User {
     /**
      * @brief class builder
      */
-    public User(){
-        
+    public User() {
+
     }
 
     /**
      * @brief user interface for the current class for inputting password. This
-     * iteration is for when the user first enters the system.
+     *        iteration is for when the user first enters the system.
      * @note: All classes will need their own override.
      * @return exit status
      */
-    public int UInterface(Menu M, OrderHandler ords){
+    public int UInterface(Menu M, OrderHandler ords) {
         String str = "";
         char a = 'a';
         System.out.println("Welcome User!");
         Scanner s = new Scanner(System.in);
-        while (a != 'z'){
+        while (a != 'z') {
             System.out.println("Choose one of the following options");
             System.out.println("a. countinue as customer.");
             System.out.println("b. Log in as staff.");
             System.out.println("z. exit");
             System.out.print("Enter an input: ");
 
-            str = s.nextLine(); 
+            str = s.nextLine();
             a = str.charAt(0);
-            
-            switch(a){
+
+            switch (a) {
                 case 'a':
                 case 'A':
                     s.close();
                     return 0;
-                
+
                 case 'b':
                 case 'B':
                     System.out.print("Enter password: ");
@@ -71,14 +72,15 @@ public class User {
     }
 
     /**
-     * @brief used to determine what to evolve this class into. If it is a recongized Admin
-     * or Employee password return 1 or 2. If unrecongized return 0.
+     * @brief used to determine what to evolve this class into. If it is a
+     *        recongized Admin
+     *        or Employee password return 1 or 2. If unrecongized return 0.
      * @return Access level
      */
-    int LogIn(String pass){
-        if (pass.compareTo(AdminPass) == 0){
+    int LogIn(String pass) {
+        if (pass.compareTo(AdminPass) == 0) {
             return 1;
-        } else if (pass.compareTo(Employeepass) == 0){
+        } else if (pass.compareTo(Employeepass) == 0) {
             return 2;
         }
         return 0;

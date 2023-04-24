@@ -5,6 +5,7 @@
  * @brief Manager class for orders
  */
 package DoughnutFactory;
+
 import java.util.ArrayList;
 import java.io.*;
 
@@ -14,28 +15,28 @@ public class OrderHandler {
     /**
      * @brief constructor
      */
-    public OrderHandler(){
-        
+    public OrderHandler() {
+
     }
 
     /**
      * @brief creates a new order.
      */
-    public void CreateOrder(){
+    public void CreateOrder(Order cord) {
         ArrayList<DoughnutStack> ord = new ArrayList<DoughnutStack>();
         // Adds a new order to the list passes the current size for the ID.
-        Orders.add(new Order(Orders.size(), ord));        
+        Orders.add(new Order(Orders.size(), ord));
     }
-    
-    public int saveOrders(){
+
+    public int saveOrders() {
         try {
             // Clears file or creates a new if it doesn't exist
             String str = "";
             FileWriter fp = new FileWriter("../../res/menu.csv", false);
             fp.write("catagory,style,price,quantity");
 
-            //Begins writing
-            for(int i = 0; i < Orders.size(); i++){
+            // Begins writing
+            for (int i = 0; i < Orders.size(); i++) {
                 str = Orders.get(i).number + String.valueOf(Orders.get(i).TotalPrice);
                 str = str + String.valueOf(Orders.get(i).TotalQuantity) + Orders.get(i).status;
                 str = str + Orders.get(i).date.DateToString();
@@ -47,7 +48,7 @@ public class OrderHandler {
         return 0;
     }
 
-    public int getReportData(){
+    public int getReportData() {
         return 0;
     }
 
@@ -55,12 +56,16 @@ public class OrderHandler {
      * @brief displays all recorded orders
      * @return
      */
-    public int displayOrders(){
-        for(int i = 0 ; i < Orders.size(); i++){
+    public int displayOrders() {
+        for (int i = 0; i < Orders.size(); i++) {
             System.out.println("-----");
             System.out.println("Order Number: " + Orders.get(i).number);
             // Finish later
         }
         return 0;
+    }
+
+    public int getsize() {
+        return Orders.size();
     }
 }

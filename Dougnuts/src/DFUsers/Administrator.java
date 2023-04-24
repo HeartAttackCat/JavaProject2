@@ -54,7 +54,7 @@ public class Administrator extends User {
                 case 'B':
                     M.AddItem(str1, str2, a);
                     break;
-                
+
                 case 'c':
                 case 'C':
                     M.DeleteItem(str1, str2);

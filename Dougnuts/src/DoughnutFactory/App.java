@@ -17,7 +17,7 @@ public class App {
         User per = new User();
         int perm = per.UInterface(null, null);
 
-        switch(perm){
+        switch (perm) {
             case 0:
                 per = new Customer();
                 break;
@@ -27,14 +27,14 @@ public class App {
                 break;
 
             case 2:
-                per = new  Administrator();
+                per = new Administrator();
                 break;
         }
 
         // User interface
-        while(perm != -1){
+        while (perm != -1) {
             perm = per.UInterface(Mu, OH);
         }
-        
+
     }
 }

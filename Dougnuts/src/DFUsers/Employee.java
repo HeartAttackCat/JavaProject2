@@ -22,7 +22,7 @@ public class Employee extends User {
         super();
     }
 
-/**
+    /**
      * @brief user interface exclusive to admin class
      * @return exit case
      */
@@ -58,7 +58,6 @@ public class Employee extends User {
 
         return 0;
     }
-
 
     /**
      * @brief shows the employee all pending orders.

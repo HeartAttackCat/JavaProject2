@@ -14,52 +14,55 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import javafx.scene.control.MenuItem;
+
 public class Menu {
     ArrayList<Doughnut> MenuItems = new ArrayList<>();
 
     /**
-     * @brief super function for menu class. Imports Menu.csv to load values for each item
-     * in the array list.
+     * @brief super function for menu class. Imports Menu.csv to load values for
+     *        each item
+     *        in the array list.
      */
-    public Menu(){
+    public Menu() {
         String str;
-		String catagory;
-		String type;
-		String price;
+        String catagory;
+        String type;
+        String price;
         String cont;
-		ArrayList<String> data = new ArrayList<>();
+        ArrayList<String> data = new ArrayList<>();
 
-		for(int i = 0; i < 4; i++) {
-			data.add("NULL");
-		}
-		Scanner fp;
+        for (int i = 0; i < 4; i++) {
+            data.add("NULL");
+        }
+        Scanner fp;
 
         // Loads the file
-		try {
-			fp = new Scanner(new File("./menu.csv"));
+        try {
+            fp = new Scanner(new File("./menu.csv"));
             System.out.println(fp.nextLine());
             System.out.println(fp.hasNextLine());
-			while(fp.hasNextLine()) {
-				str = fp.nextLine();
+            while (fp.hasNextLine()) {
+                str = fp.nextLine();
                 System.out.print(str);
-				catagory = str.split(",", 4)[0];
-				type = str.split(",", 4)[1];
-				price = str.split(",", 4)[3];
+                catagory = str.split(",", 4)[0];
+                type = str.split(",", 4)[1];
+                price = str.split(",", 4)[3];
                 cont = str.split(",", 4)[4];
-				MenuItems.add(new Doughnut(catagory, type, Float.valueOf(price), Integer.valueOf(cont)));
-			}
-			fp.close();
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		}
+                MenuItems.add(new Doughnut(catagory, type, Float.valueOf(price), Integer.valueOf(cont)));
+            }
+            fp.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
     /**
      * @brief Prints out the entire menu.
      */
-    public void ViewMenu(){
+    public void ViewMenu() {
         System.out.println("Type\tItem\tPrice\tQuantity");
-        for(int i = 0; i>MenuItems.size();i++){
+        for (int i = 0; i > MenuItems.size(); i++) {
             System.out.print(MenuItems.get(i).catagory + "\t");
             System.out.print(MenuItems.get(i).Style + "\t");
             System.out.println(MenuItems.get(i).Cost + "\t" + MenuItems.get(i).count);
@@ -71,11 +74,11 @@ public class Menu {
      * @brief Adds a new item to the menu
      * @note ADMIN ONLY FUNCTION
      * @param CatName The catagory we are adding to.
-     * @param Iname the item name
-     * @param c the cost of the item
+     * @param Iname   the item name
+     * @param c       the cost of the item
      * @return if successful return 0
      */
-    public int AddItem(String CatName, String Iname, float c){
+    public int AddItem(String CatName, String Iname, float c) {
         MenuItems.add(new Doughnut(CatName, Iname, c, 0));
         SaveChanges();
         return 0;
@@ -85,13 +88,13 @@ public class Menu {
      * @brief Deletes a new item to the menu
      * @note ADMIN ONLY FUNCTION
      * @param CatName the catagory of the doughnut.
-     * @param Iname the items name.
+     * @param Iname   the items name.
      * @return if successful return 0; upon failure return 1 (Item not found)
      */
-    public int DeleteItem(String CatName, String Iname){
-    
-        for(int i = 0; i < MenuItems.size(); i++){
-            if(CatName.compareTo(MenuItems.get(i).catagory) == 0 && Iname.compareTo(MenuItems.get(i).Style) == 0){
+    public int DeleteItem(String CatName, String Iname) {
+
+        for (int i = 0; i < MenuItems.size(); i++) {
+            if (CatName.compareTo(MenuItems.get(i).catagory) == 0 && Iname.compareTo(MenuItems.get(i).Style) == 0) {
                 MenuItems.remove(i);
                 SaveChanges();
                 return 0;
@@ -100,15 +103,15 @@ public class Menu {
         SaveChanges();
         return 1;
     }
-    
+
     /**
      * @brief edits an existing item on the menu
      * @note ADMIN ONLY FUNCTION
      * @return if successful return 0 ; upon failure return 1 (Item note found)
      */
-    public int EditItem(String CatName, String Iname){
-        for(int i = 0; i < MenuItems.size(); i++){
-            if(CatName.compareTo(MenuItems.get(i).catagory) == 0 && Iname.compareTo(MenuItems.get(i).Style) == 0){
+    public int EditItem(String CatName, String Iname) {
+        for (int i = 0; i < MenuItems.size(); i++) {
+            if (CatName.compareTo(MenuItems.get(i).catagory) == 0 && Iname.compareTo(MenuItems.get(i).Style) == 0) {
                 UpdateItem(i);
                 SaveChanges();
                 return 0;
@@ -120,12 +123,13 @@ public class Menu {
 
     /**
      * @brief focuses on updating a single item where the index was provided
-     * @NOTE: This is a very ugly implementation will fix if we have time after the project
-     * works.
+     * @NOTE: This is a very ugly implementation will fix if we have time after the
+     *        project
+     *        works.
      * @param index The index we are editing
      */
-    public void UpdateItem(int index){
-        String str; 
+    public void UpdateItem(int index) {
+        String str;
         Scanner s = new Scanner(System.in);
 
         // Updates catagory
@@ -149,12 +153,10 @@ public class Menu {
         SaveChanges();
     }
 
-    
-
     /**
      * @brief saves any changes to menu.csv.
      */
-    void SaveChanges(){
+    void SaveChanges() {
         try {
             // Clears file or creates a new if it doesn't exist
             clearmenu();
@@ -162,8 +164,8 @@ public class Menu {
             FileWriter fp = new FileWriter("../../res/menu.csv", false);
             fp.write("catagory,style,price,quantity");
 
-            //Begins writing
-            for(int i = 0; i < MenuItems.size(); i++){
+            // Begins writing
+            for (int i = 0; i < MenuItems.size(); i++) {
                 str = "";
                 str = MenuItems.get(i).catagory + MenuItems.get(i).Style;
                 str = str + String.valueOf(MenuItems.get(i).Cost) + String.valueOf(MenuItems.get(i).count);
@@ -175,13 +177,13 @@ public class Menu {
     }
 
     /**
-     * @brief clears the menu.csv in case 
+     * @brief clears the menu.csv in case
      * @return If it created a new file 1 if created. 0 if file already exists.
      */
-    int clearmenu(){
-        try{
+    int clearmenu() {
+        try {
             File myObj = new File("../../../res/menu.csv");
-            if(myObj.createNewFile()) {
+            if (myObj.createNewFile()) {
                 return 1;
             }
             FileWriter fw = new FileWriter("../../../res/menu.csv", false);
@@ -189,25 +191,25 @@ public class Menu {
             pw.flush();
             pw.close();
             fw.close();
-        
-            }catch(Exception exception){
 
-            }
+        } catch (Exception exception) {
+
+        }
         return 0;
     }
 
     /**
      * @brief Determines if an item is in the list
      * @Note if time permits overhaul other functions to use this one.
-     * @param cat Catagory of Doughnut
+     * @param cat  Catagory of Doughnut
      * @param type Type of doughnut
      * @return index if found | -1 if catagory doesn't exist | -2 if catagory
-     *  is real but type is not
+     *         is real but type is not
      */
-    public int IsItem(String cat, String type){
-        for(int i = 0; i < MenuItems.size();i++){
-            if (MenuItems.get(i).catagory.compareToIgnoreCase(cat) == 0){
-                if (MenuItems.get(i).Style.compareToIgnoreCase(type) == 0){
+    public int IsItem(String cat, String type) {
+        for (int i = 0; i < MenuItems.size(); i++) {
+            if (MenuItems.get(i).catagory.compareToIgnoreCase(cat) == 0) {
+                if (MenuItems.get(i).Style.compareToIgnoreCase(type) == 0) {
                     return i;
                 }
                 return -2;
@@ -215,5 +217,29 @@ public class Menu {
         }
 
         return -1;
+    }
+
+    /**
+     * @brief gets an item's price when index is unknown
+     * @param cat  Item's catagory
+     * @param type Items type
+     * @return Is real? Return price | Not real? return 0
+     */
+    public float GetPrice(String cat, String type) {
+        int z = IsItem(cat, type);
+        if (z >= 0) {
+            return MenuItems.get(z).Cost;
+        }
+        return 0;
+    }
+
+    /**
+     * @brief gets an item's price when index is known.
+     * @param cat  Item's catagory
+     * @param type Items type
+     * @return Is real? Return price | Not real? return 0
+     */
+    public float GetPrice(int index) {
+        return MenuItems.get(index).Cost;
     }
 }
