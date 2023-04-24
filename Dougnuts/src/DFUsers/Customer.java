@@ -9,6 +9,7 @@ package DFUsers;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
+import java.util.ArrayList;
 import DoughnutFactory.*;
 
 public class Customer extends User {
@@ -73,14 +74,46 @@ public class Customer extends User {
      * @param ord orderhandler
      */
     void PlaceOrder(Menu M, OrderHandler ord) {
-        try {
-            FileWriter myWriter = new FileWriter("Orders", true);
-            // TODO write person's order to Orders.csv
-            myWriter.close();
-            System.out.println("Successfully wrote Report.");
-        } catch (IOException e) {
-            System.out.println("An error occurred.");
-            e.printStackTrace();
+        char a = '-';
+        String str = "";
+        Scanner sc = new Scanner(System.in);
+        ArrayList<DoughnutStack> cord = new ArrayList<DoughnutStack>();
+
+        while(a != 'z'){
+            while (a != 'z') {
+                System.out.println("----");
+                System.out.println("Choose one of the following options");
+                System.out.println("-----");
+                System.out.println("a. View Menu");
+                System.out.println("b. Add item to order");
+                System.out.println("c. Finalize order");
+                System.out.println("z. exit");
+                System.out.print("Enter an input: ");
+    
+                str = sc.nextLine();
+                a = str.charAt(0);
+    
+                switch (a) {
+                    case 'a':
+                    case 'A':
+                        M.ViewMenu();
+                        break;
+    
+                    case 'b':
+                    case 'B':
+                        break;
+    
+                    case 'z':
+                    case 'Z':
+                        a = 'z';
+                        break;
+    
+                    default:
+                        System.out.println("Error | Unknown input!");
+                }
+            }
         }
+
+
     }
 }

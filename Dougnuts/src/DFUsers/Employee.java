@@ -63,7 +63,7 @@ public class Employee extends User {
     /**
      * @brief shows the employee all pending orders.
      */
-    public void ViewOrders() {
+    public void ViewOrders(OrderHandler ords) {
         String line = "";
         String splitBy = ",";
         try {
