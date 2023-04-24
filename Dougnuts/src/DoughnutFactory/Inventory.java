@@ -19,6 +19,7 @@ public class Inventory {
      *        check if expired | Yes? skip this line | No? add into arraylist
      */
     public Inventory() {
+        
     }
 
     public int newitem() {

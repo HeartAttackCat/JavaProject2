@@ -1,2 +1,10 @@
 1. Inventory manger
-2. Write expired doughnuts into a seperate file.
+    a. Load good into inv.
+    b. load expired into expire.csv.
+    c. Subtract from doughnuts when ordering.
+2. Generate Admin reports.
+    Note:   we can break this apart into different reports.
+            - Sells
+            - expired
+3. DEBUG
+    a. fix file reading problem

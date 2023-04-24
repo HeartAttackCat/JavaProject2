@@ -2,7 +2,8 @@
  * @author simplex
  * @file OrderHandler.java
  * @assignment Project 2
- * @brief Manager class for orders
+ * @brief Manager class for orders and the inventory because since all ordering
+ * is done through this class it's best to pair the inventory stats and order stats.
  */
 package DoughnutFactory;
 
@@ -10,6 +11,7 @@ import java.util.ArrayList;
 import java.io.*;
 
 public class OrderHandler {
+    public Inventory inv = new Inventory();
     public ArrayList<Order> Orders = new ArrayList<Order>();
 
     /**
