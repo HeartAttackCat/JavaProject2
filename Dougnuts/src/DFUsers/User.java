@@ -47,20 +47,12 @@ public class User {
             switch (a) {
                 case 'a':
                 case 'A':
-<<<<<<< HEAD
-=======
-                    
->>>>>>> 227a24599c26686b8e82243b36684778394644cb
                     return 0;
 
                 case 'b':
                 case 'B':
                     System.out.print("Enter password: ");
                     str = s.nextLine();
-<<<<<<< HEAD
-=======
-                    
->>>>>>> 227a24599c26686b8e82243b36684778394644cb
                     return LogIn(str);
 
                 case 'z':
@@ -72,10 +64,6 @@ public class User {
                     System.out.println("Error | Unknown input!");
             }
         }
-<<<<<<< HEAD
-
-=======
->>>>>>> 227a24599c26686b8e82243b36684778394644cb
         return 0;
     }
 
