@@ -1,8 +1,4 @@
-1. Generate Admin reports.
-    Note:   we can break this apart into different reports.
-            - Sells
-            - expired
-2. Update class  diagram
-3. DEBUG
+1. Update class  diagram
+2. DEBUG
     a. fix file reading problem
     b. Figure out the the most devestating bugs
