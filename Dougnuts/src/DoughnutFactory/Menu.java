@@ -42,8 +42,7 @@ public class Menu {
                 catagory = str.split(",", 3)[0];
                 type = str.split(",", 3)[1];
                 price = str.split(",", 3)[2];
-                MenuItems.add(new Doughnut(catagory, type, 0.0f));
-                System.out.println("[DEBUGGSTATEMENT] \'" + price + "\'");
+                MenuItems.add(new Doughnut(catagory, type, Float.parseFloat(price)));
             }
             fp.close();
         } catch (FileNotFoundException e) {
@@ -56,7 +55,7 @@ public class Menu {
      */
     public void ViewMenu() {
         System.out.println("Type\tItem\tPrice");
-        for (int i = 0; i > MenuItems.size(); i++) {
+        for (int i = 0; i < MenuItems.size(); i++) {
             System.out.print(MenuItems.get(i).catagory + "\t");
             System.out.print(MenuItems.get(i).Style + "\t");
             System.out.println(MenuItems.get(i).Cost);
