@@ -95,10 +95,59 @@ public class Inventory {
         return 0;
     }
 
-    public int takeFromStack() {
+    public int InvRequest(String cat, String sty, int cont, Menu M){
+        int index;
+        while(cont > 0){
+            index = searchginv(cat, sty);
+            if (index == -1){
+                // Assumed employee will validate to add more.
+                newstack(cat, sty, M);
+            } else if (cont > ginv.get(index).quantity){
+                cont -= ginv.get(index).quantity;
+                ginv.get(index).quantity = 0;
+            } else {
+                ginv.get(index).quantity -= cont;
+                cont = 0;
+            }
+            
+        }
         return 0;
     }
 
+
+    /**
+     * @brief takes from a specified stack
+     * @param rm how much is being removed.
+     * @param index the index from ginv we are removing from.
+     * @return
+     */
+    public int takeFromStack(int rm, int index) {
+        ginv.get(index).quantity -= rm;
+        return 0;
+    }
+
+    /**
+     * @brief searches inventory for a specified item that currently has doughnuts in it
+     * @param cat
+     * @param style
+     * @return
+     */
+    public int searchginv(String cat, String style){
+        for(int i = 0; i < ginv.size(); i++){
+            if (ginv.get(i).DoughnutType.catagory.compareToIgnoreCase(cat) == 0){
+                if (ginv.get(i).DoughnutType.Style.compareToIgnoreCase(cat) == 0){
+                    if(ginv.get(i).quantity > 0){
+                        return i;
+                    }
+                }
+            }
+        }
+        return -1;
+    }
+
+    /**
+     * @brief Saves our current inventory into inv.csv
+     */
     public void SaveInv() {
         String zadj = "0";
         String Winfo = "Catagory,style,quantity,date,price";
