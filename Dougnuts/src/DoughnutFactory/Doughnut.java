@@ -18,7 +18,7 @@ public class Doughnut {
      * @param c   Cost of the doughnut
      * @param x   quantity of doughnuts; This is temporary.
      */
-    public Doughnut(String St, String Cat, float c) {
+    public Doughnut(String Cat, String St, float c) {
         Style = St;
         catagory = Cat;
         Cost = c;

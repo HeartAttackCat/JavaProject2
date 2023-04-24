@@ -43,8 +43,6 @@ public class Menu {
                 type = str.split(",", 3)[1];
                 price = str.split(",", 3)[2];
                 MenuItems.add(new Doughnut(catagory, type, Float.parseFloat(price)));
-                MenuItems.add(new Doughnut(type, catagory, Float.parseFloat(price)));
-                System.out.println("[DEBUGGSTATEMENT] \'" + price + "\'");
             }
             fp.close();
         } catch (FileNotFoundException e) {

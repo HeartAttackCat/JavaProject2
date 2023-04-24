@@ -55,7 +55,7 @@ public class Customer extends User {
 
                 case 'z':
                 case 'Z':
-                    return 0;
+                    return -1;
 
                 default:
                     System.out.println("Error | Unknown input!");
@@ -116,7 +116,7 @@ public class Customer extends User {
                     System.out.print("Please enter the item's sub catagory: ");
                     str2 = sc.nextLine();
                     index = M.IsItem(str1, str2);
-
+                    System.out.println(index);
                     if (index >= 0) {
                         System.out.print("How many would you like: ");
                         quant = Integer.parseInt(sc.nextLine());
@@ -150,13 +150,13 @@ public class Customer extends User {
                     for (int i = 0; i < cord.size(); i++) {
                         System.out.print(i + ". " + cord.get(i).DoughnutType.catagory + " "
                                 + cord.get(i).DoughnutType.Style);
-                        System.out.print(" " + (cord.get(i).quantity * cord.get(i).DoughnutType.Cost));
+                        System.out.print(" " + (cord.get(i).quantity * cord.get(i).DoughnutType.Cost) + "\n");
                     }
 
                     System.out.println("Please enter which option you'd like to remove: ");
-                    index = sc.nextInt();
+                    index = Integer.parseInt(sc.nextLine());
 
-                    if (index > cord.size() && index >= 0) {
+                    if (index > cord.size() || index >= 0) {
                         cord.remove(index);
                     } else {
                         System.out.println("Error item does not exist");

@@ -80,10 +80,11 @@ public class Inventory {
         int index;
         Doughnut tmp;
 
-        index = M.IsItem(cat, sty);
+        index = M.IsItem(sty, cat);
+        System.out.println(index);
         if (index >= 0) {
             price = M.GetPrice(index);
-            tmp = new Doughnut(sty, cat, price);
+            tmp = new Doughnut(cat, sty, price);
             ginv.add(new DoughnutStack(tmp, 20));
             System.out.println("Item has been added to inventory.");
         } else {
@@ -94,9 +95,9 @@ public class Inventory {
 
     public int InvRequest(String cat, String sty, int cont, Menu M) {
         int index;
-        while (cont > 0) {
+        while (cont >= 1) {
             index = searchginv(cat, sty);
-            if (index == -1) {
+            if (index <= -1) {
                 // Assumed employee will validate to add more.
                 newstack(cat, sty, M);
             } else if (cont > ginv.get(index).quantity) {
@@ -121,7 +122,7 @@ public class Inventory {
     public int searchginv(String cat, String style) {
         for (int i = 0; i < ginv.size(); i++) {
             if (ginv.get(i).DoughnutType.catagory.compareToIgnoreCase(cat) == 0) {
-                if (ginv.get(i).DoughnutType.Style.compareToIgnoreCase(cat) == 0) {
+                if (ginv.get(i).DoughnutType.Style.compareToIgnoreCase(style) == 0) {
                     if (ginv.get(i).quantity > 0) {
                         return i;
                     }

@@ -68,7 +68,7 @@ public class Employee extends User {
 
                 case 'z':
                 case 'Z':
-                    return 0;
+                    return -1;
 
                 default:
                     System.out.println("Error | Unknown input!");

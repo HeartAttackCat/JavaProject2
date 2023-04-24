@@ -39,6 +39,6 @@ public class App {
         while (perm != -1) {
             perm = per.UInterface(Mu, OH, scan);
         }
-
+        OH.saveOrders();
     }
 }
