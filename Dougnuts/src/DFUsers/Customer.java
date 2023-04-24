@@ -119,7 +119,7 @@ public class Customer extends User {
 
                     if (index >= 0) {
                         System.out.print("How many would you like: ");
-                        quant = sc.nextInt();
+                        quant = Integer.parseInt(sc.nextLine());
                         price = M.GetPrice(index);
                         temp = new Doughnut(str2, str1, price);
                         cord.add(new DoughnutStack(temp, quant));
@@ -194,7 +194,6 @@ public class Customer extends User {
                     System.out.println("Error | Unknown input!");
             }
         }
-        sc.close();
 
     }
 }
