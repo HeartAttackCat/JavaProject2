@@ -163,10 +163,6 @@ public class OrderHandler {
         return str;
     }
 
-    public int getReportData() {
-        return 0;
-    }
-
     /**
      * @brief displays all recorded orders
      * @return 0
