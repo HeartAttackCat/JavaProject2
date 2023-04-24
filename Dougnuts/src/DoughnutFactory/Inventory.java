@@ -52,7 +52,7 @@ public class Inventory {
                 month = Integer.parseInt(date.split("-", 3)[1]);
                 day = Integer.parseInt(date.split("-", 3)[2]);
 
-                temp = new Doughnut(str, catagory, price);
+                temp = new Doughnut(catagory, type, price);
                 d = new Date(year, month, day);
                 fresh = d.ExpCheck();
 
