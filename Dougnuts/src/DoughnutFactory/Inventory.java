@@ -37,7 +37,7 @@ public class Inventory {
 
         // Loads the file
         try {
-            fp = new Scanner(new File("./Dougnuts/res/inv.csv"));
+            fp = new Scanner(new File("./Dougnuts/res/Inv.csv"));
             System.out.println(fp.nextLine());
             System.out.println(fp.hasNextLine());
             while (fp.hasNextLine()) {

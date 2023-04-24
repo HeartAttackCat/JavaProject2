@@ -44,9 +44,14 @@ public class OrderHandler {
             while (fp.hasNextLine()) {
                 str = fp.nextLine();
                 ID = str.split(",", 5)[0];
-                price = Float.parseFloat(str.split(",", 5)[1]);
-                quantity = Integer.parseInt(str.split(",", 5)[2]);
-                status = Integer.parseInt(str.split(",", 5)[3]);
+                try {
+                    price = Float.parseFloat(str.split(",", 5)[1]);
+                    quantity = Integer.parseInt(str.split(",", 5)[2]);
+                    status = Integer.parseInt(str.split(",", 5)[3]);
+                } catch (NumberFormatException e) {
+                    System.out.println("Ignoring...");
+                }
+                
                 date = str.split(",", 5)[4];
                 items = str.split(",", 5)[5];
 
