@@ -112,17 +112,6 @@ public class Inventory {
     }
 
     /**
-     * @brief takes from a specified stack
-     * @param rm    how much is being removed.
-     * @param index the index from ginv we are removing from.
-     * @return
-     */
-    public int takeFromStack(int rm, int index) {
-        ginv.get(index).quantity -= rm;
-        return 0;
-    }
-
-    /**
      * @brief searches inventory for a specified item that currently has doughnuts
      *        in it
      * @param cat

@@ -146,7 +146,7 @@ public class Menu {
     /**
      * @brief saves any changes to menu.csv.
      */
-    void SaveChanges() {
+    public void SaveChanges() {
         try {
             // Clears file or creates a new if it doesn't exist
             clearmenu();
@@ -170,7 +170,7 @@ public class Menu {
      * @brief clears the menu.csv in case
      * @return If it created a new file 1 if created. 0 if file already exists.
      */
-    int clearmenu() {
+    public int clearmenu() {
         try {
             File myObj = new File("./Dougnuts/res/menu.csv");
             if (myObj.createNewFile()) {
