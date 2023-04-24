@@ -20,20 +20,22 @@ public class OrderHandler {
      */
     public OrderHandler(Menu M) {
         inv = new Inventory(M);
-        // orderID,price,quantity,status,date
+        ArrayList<DoughnutStack> temp;
+        // orderID,price,quantity,status,date,items
+        // items: Catagory-Style-Quantity=...=DNR
         String str;
         String ID;
         String date;
         String items;
         float price;
         int quantity;
-        int status; 
+        int status;
 
         int year;
         int month;
         int day;
 
-        Date tmp;  
+        Date tmp;
         Scanner fp;
 
         // Loads the file
@@ -54,6 +56,10 @@ public class OrderHandler {
                 day = Integer.parseInt(date.split("-", 2)[2]);
                 tmp = new Date(year, month, day);
 
+                // Builds the person's order items
+                temp = StackBuild(items, tmp, M);
+
+                Orders.add(new Order(Orders.size(), temp));
 
             }
             fp.close();
@@ -63,7 +69,48 @@ public class OrderHandler {
     }
 
     /**
+     * @brief builds the donought stacks for each order.
+     * @param items The items we are adding onto the stack.
+     * @param d     The date it was ordered.
+     */
+    public ArrayList<DoughnutStack> StackBuild(String items, Date d, Menu M) {
+        int cont = CountItems(items);
+        ArrayList<DoughnutStack> temp = new ArrayList<DoughnutStack>();
+        Doughnut t;
+        String str;
+
+        String cat;
+        String sty;
+        int quant;
+        float price;
+
+        for (int i = 0; i < cont - 1; i++) {
+            str = items.split("=", cont)[i];
+
+            sty = str.split("-", 2)[1];
+            cat = str.split("-", 2)[0];
+            quant = Integer.parseInt(str.split("-", 2)[2]);
+            price = M.GetPrice(cat, sty);
+
+            t = new Doughnut(sty, cat, price);
+            temp.add(new DoughnutStack(t, quant));
+        }
+        return temp;
+    }
+
+    public int CountItems(String items) {
+        int cont = 0;
+        for (int i = 0; i < items.length(); i++) {
+            if (items.charAt(i) == '=') {
+                cont++;
+            }
+        }
+        return cont;
+    }
+
+    /**
      * @brief creates a new order.
+     * @param cord the order we are adding onto the list.
      */
     public void CreateOrder(Order cord) {
         ArrayList<DoughnutStack> ord = new ArrayList<DoughnutStack>();
@@ -94,15 +141,14 @@ public class OrderHandler {
         return 0;
     }
 
-
     /**
      * @brief builds a string of the an index's orders.
      * @param index the index we are building a string of
      * @return A string containing all items.
      */
-    public String Builditems(int index){
+    public String Builditems(int index) {
         String str = "";
-        for(int i = 0; i < Orders.get(index).items.size(); i++){
+        for (int i = 0; i < Orders.get(index).items.size(); i++) {
             str = str + Orders.get(index).items.get(i).DoughnutType.catagory;
             str = str + "-";
             str = str + Orders.get(index).items.get(i).DoughnutType.Style;
@@ -111,6 +157,8 @@ public class OrderHandler {
             // Seperates each seperate item group.
             str = str + "=";
         }
+        // Do Not Read
+        str = str + "DNR";
 
         return str;
     }
