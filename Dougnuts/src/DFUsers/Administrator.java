@@ -88,15 +88,22 @@ public class Administrator extends User {
      *        Todo: Last part of user functionally that needs to be added.
      */
     void GenerateReports() {
-        try {
-            FileWriter myWriter = new FileWriter("Reports.txt", false);
-            // TODO write reports using order info
-            myWriter.close();
-            System.out.println("Successfully wrote Report.");
-        } catch (IOException e) {
-            System.out.println("An error occurred.");
-            e.printStackTrace();
-        }
+        Salesrep();
+        ExpRep();
+    }
+
+    /**
+     * @brief generates the sales reports.
+     */
+    void Salesrep(){
+
+    }
+
+    /**
+     * @brief generates the expired reports.
+     */
+    void ExpRep(){
+
     }
 
 }
