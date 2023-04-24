@@ -29,11 +29,11 @@ public class User {
      * @note: All classes will need their own override.
      * @return exit status
      */
-    public int UInterface(Menu M, OrderHandler ords) {
+    public int UInterface(Menu M, OrderHandler ords, Scanner s) {
         String str = "";
         char a = 'a';
         System.out.println("Welcome User!");
-        Scanner s = new Scanner(System.in);
+        
         while (a != 'z') {
             System.out.println("Choose one of the following options");
             System.out.println("a. countinue as customer.");
@@ -47,27 +47,25 @@ public class User {
             switch (a) {
                 case 'a':
                 case 'A':
-                    s.close();
+                    
                     return 0;
 
                 case 'b':
                 case 'B':
                     System.out.print("Enter password: ");
                     str = s.nextLine();
-                    s.close();
+                    
                     return LogIn(str);
 
                 case 'z':
                 case 'Z':
-                    s.close();
+                    
                     return -1;
 
                 default:
                     System.out.println("Error | Unknown input!");
             }
         }
-
-        s.close();
         return 0;
     }
 

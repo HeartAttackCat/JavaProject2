@@ -7,16 +7,19 @@
 
 package DoughnutFactory;
 
+import java.util.Scanner;
+
 import DFUsers.*;
 
 public class App {
     public static void main(String[] args) throws Exception {
         // Reason why files weren't reading doughnuts was spelt wrong lol.
         // String path = "./Dougnuts/res/";
+        Scanner scan = new Scanner(System.in);
         Menu Mu = new Menu();
         OrderHandler OH = new OrderHandler(Mu);
         User per = new User();
-        int perm = per.UInterface(null, null);
+        int perm = per.UInterface(null, null, scan);
 
         switch (perm) {
             case 0:
@@ -34,7 +37,7 @@ public class App {
 
         // User interface
         while (perm != -1) {
-            perm = per.UInterface(Mu, OH);
+            perm = per.UInterface(Mu, OH, scan);
         }
 
     }
