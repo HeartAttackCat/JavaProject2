@@ -1,7 +1,6 @@
 1. Inventory manger
-    a. Load good into inv.
-    b. load expired into expire.csv.
-    c. Subtract from doughnuts when ordering.
+    a. allow employee to create new stacks.
+    b. Call inventory when customer orders.
 2. Generate Admin reports.
     Note:   we can break this apart into different reports.
             - Sells
