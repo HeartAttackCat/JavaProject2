@@ -100,13 +100,11 @@ public class Employee extends User {
         x = sc.nextInt();
         if (x < 0 || x > ords.Orders.size()) {
             System.out.println("Error Order does not exist");
-            sc.close();
             return -1;
         }
 
         ords.CompleteOrder(x);
         System.out.println("Order has been marked as completed.");
-        sc.close();
         return 0;
     }
 }
