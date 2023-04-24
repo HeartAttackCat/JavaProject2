@@ -8,14 +8,13 @@
 package DoughnutFactory;
 
 import DFUsers.*;
-import java.io.*;
 
 public class App {
     public static void main(String[] args) throws Exception {
         // Reason why files weren't reading doughnuts was spelt wrong lol.
         // String path = "./Dougnuts/res/";
         Menu Mu = new Menu();
-        OrderHandler OH = new OrderHandler();
+        OrderHandler OH = new OrderHandler(Mu);
         User per = new User();
         int perm = per.UInterface(null, null);
 
