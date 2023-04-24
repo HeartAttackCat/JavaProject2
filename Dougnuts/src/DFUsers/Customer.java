@@ -26,11 +26,10 @@ public class Customer extends User {
      * @return exit status
      */
     @Override
-    public int UInterface(Menu M, OrderHandler ords) {
+    public int UInterface(Menu M, OrderHandler ords, Scanner s) {
         String str = "";
         char a = 'a';
         System.out.println("Welcome valued customer!");
-        Scanner s = new Scanner(System.in);
         while (a != 'z') {
             System.out.println("----");
             System.out.println("Choose one of the following options");
@@ -62,8 +61,11 @@ public class Customer extends User {
                     System.out.println("Error | Unknown input!");
             }
         }
+<<<<<<< HEAD
     
 
+=======
+>>>>>>> 227a24599c26686b8e82243b36684778394644cb
         return 0;
     }
 
