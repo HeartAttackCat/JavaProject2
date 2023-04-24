@@ -36,15 +36,12 @@ public class Menu {
 
         // Loads the file
         try {
-            fp = new Scanner(new File("./menu.csv"));
-            System.out.println(fp.nextLine());
-            System.out.println(fp.hasNextLine());
+            fp = new Scanner(new File("./Dougnuts/res/menu.csv"));
             while (fp.hasNextLine()) {
                 str = fp.nextLine();
-                System.out.print(str);
-                catagory = str.split(",", 4)[0];
-                type = str.split(",", 4)[1];
-                price = str.split(",", 4)[3];
+                catagory = str.split(",", 3)[0];
+                type = str.split(",", 3)[1];
+                price = str.split(",", 3)[2];
                 MenuItems.add(new Doughnut(catagory, type, Float.valueOf(price)));
             }
             fp.close();
@@ -154,7 +151,7 @@ public class Menu {
             // Clears file or creates a new if it doesn't exist
             clearmenu();
             String str = "";
-            FileWriter fp = new FileWriter("../../res/menu.csv", false);
+            FileWriter fp = new FileWriter("./Dougnuts/res/menu.csv", false);
             fp.write("catagory,style,price,quantity");
 
             // Begins writing
@@ -175,11 +172,11 @@ public class Menu {
      */
     int clearmenu() {
         try {
-            File myObj = new File("../../../res/menu.csv");
+            File myObj = new File("./Dougnuts/res/menu.csv");
             if (myObj.createNewFile()) {
                 return 1;
             }
-            FileWriter fw = new FileWriter("../../../res/menu.csv", false);
+            FileWriter fw = new FileWriter("./Dougnuts/res/menu.csv", false);
             PrintWriter pw = new PrintWriter(fw, false);
             pw.flush();
             pw.close();
