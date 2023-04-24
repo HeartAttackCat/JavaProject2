@@ -37,7 +37,7 @@ public class Inventory {
 
         // Loads the file
         try {
-            fp = new Scanner(new File("./inv.csv"));
+            fp = new Scanner(new File("./Dougnuts/res/inv.csv"));
             System.out.println(fp.nextLine());
             System.out.println(fp.hasNextLine());
             while (fp.hasNextLine()) {
@@ -149,7 +149,7 @@ public class Inventory {
         String zadj = "0";
         String Winfo = "Catagory,style,quantity,date,price";
         try {
-            RandomAccessFile raf = new RandomAccessFile("./res/inv.csv", "rws");
+            RandomAccessFile raf = new RandomAccessFile("./Dougnuts/res/inv.csv", "rws");
             try {
                 raf.seek(0);
                 raf.writeBytes(Winfo);
