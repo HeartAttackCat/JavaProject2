@@ -77,7 +77,6 @@ public class Administrator extends User {
                 default:
                     System.out.println("Error | Unknown input!");
             }
-            s.close();
         }
 
         return 0;

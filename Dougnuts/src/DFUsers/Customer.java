@@ -62,7 +62,7 @@ public class Customer extends User {
                     System.out.println("Error | Unknown input!");
             }
         }
-        s.close();
+    
 
         return 0;
     }

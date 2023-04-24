@@ -56,7 +56,7 @@ public class Menu {
      */
     public void ViewMenu() {
         System.out.println("Type\tItem\tPrice");
-        for (int i = 0; i > MenuItems.size(); i++) {
+        for (int i = 0; i < MenuItems.size(); i++) {
             System.out.print(MenuItems.get(i).catagory + "\t");
             System.out.print(MenuItems.get(i).Style + "\t");
             System.out.println(MenuItems.get(i).Cost);
