@@ -17,9 +17,6 @@ public class Inventory {
 
     /**
      * @brief constructor class
-     *        TODO:
-     *        Read from inventory file and initalize
-     *        check if expired | Yes? Add to bad | No? Add to good
      */
     public Inventory(Menu M) {
         String str;

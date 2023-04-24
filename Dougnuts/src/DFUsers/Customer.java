@@ -175,6 +175,9 @@ public class Customer extends User {
                 case 'E':
                     // Sets a to z to exit out of order
                     a = 'z';
+                    for(int i = 0; i < cord.size(); i++){
+                        ord.inv.InvRequest(cord.get(i).DoughnutType.catagory, cord.get(i).DoughnutType.Style, cord.get(i).quantity, M);
+                    }
                     neword = new Order(ord.getsize(), cord);
                     System.out.println("Thank you for shopping with us!");
                     System.out.println("Your order will be completed shortly. Order number: " + neword.number);
