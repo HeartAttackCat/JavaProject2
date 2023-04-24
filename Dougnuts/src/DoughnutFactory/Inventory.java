@@ -99,4 +99,39 @@ public class Inventory {
         return 0;
     }
 
+    public void SaveInv() {
+        String Winfo = "Catagory,style,quantity,date,price";
+        try {
+            RandomAccessFile raf = new RandomAccessFile("./res/inv.csv", "rws");
+            try {
+                raf.seek(0);
+                raf.writeBytes(Winfo);
+                // Writes in the expired inventory
+                for (int i = 0; i < binv.size(); i++) {
+                    Winfo = ("\n");
+                    Winfo += binv.get(i).DoughnutType.catagory;
+                    Winfo += binv.get(i).DoughnutType.Style;
+                    Winfo += String.valueOf(binv.get(i).quantity);
+                    Winfo += binv.get(i).expire.DateToString();
+                    Winfo += String.valueOf(binv.get(i).DoughnutType.Cost);
+                    raf.writeBytes(Winfo);
+                }
+                // Writes the good inventory
+                for (int i = 0; i < binv.size(); i++) {
+                    Winfo = ("\n");
+                    Winfo += ginv.get(i).DoughnutType.catagory;
+                    Winfo += ginv.get(i).DoughnutType.Style;
+                    Winfo += String.valueOf(ginv.get(i).quantity);
+                    Winfo += ginv.get(i).expire.DateToString();
+                    Winfo += String.valueOf(ginv.get(i).DoughnutType.Cost);
+                    raf.writeBytes(Winfo);
+                }
+                raf.close();
+            } catch (IOException e) {
+
+            }
+        } catch (FileNotFoundException e) {
+
+        }
+    }
 }
