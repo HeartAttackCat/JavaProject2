@@ -19,41 +19,83 @@ public class Inventory {
      * @brief constructor class
      *        TODO:
      *        Read from inventory file and initalize
-     *        check if expired  | Yes? Add to bad; date = 0-0-0  only used for generating the 
-     *                                 expired report.
-     *                          | No? add to good; 
+     *        check if expired | Yes? Add to bad | No? Add to good
      */
-    public Inventory() {
+    public Inventory(Menu M) {
         String str;
         String catagory;
         String type;
         String date;
+
+        int year;
+        int month;
+        int day;
         int quant;
-        Doughnut temp; 
+        float price;
+        boolean fresh;
+
+        Date d;
+        Doughnut temp;
         Scanner fp;
 
         // Loads the file
         try {
-            fp = new Scanner(new File("./menu.csv"));
+            fp = new Scanner(new File("./inv.csv"));
             System.out.println(fp.nextLine());
             System.out.println(fp.hasNextLine());
             while (fp.hasNextLine()) {
                 str = fp.nextLine();
-                System.out.print(str);
                 catagory = str.split(",", 4)[0];
                 type = str.split(",", 4)[1];
                 date = str.split(",", 4)[2];
                 quant = Integer.parseInt(str.split(",", 4)[3]);
-                
-                
+                price = Float.parseFloat(str.split(",", 4)[4])
+
+                year = Integer.parseInt(date.split("-", 3)[0]);
+                month = Integer.parseInt(date.split("-", 3)[1]);
+                day = Integer.parseInt(date.split("-", 3)[2]);
+
+                temp = new Doughnut(str, catagory, price);
+                d = new Date(year, month, day);
+                fresh = d.ExpCheck();
+
+                if (fresh == true) {
+                    ginv.add(new DoughnutStack(d, temp, quant, fresh));
+                } else {
+                    binv.add(new DoughnutStack(d, temp, quant, fresh));
+                }
             }
             fp.close();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
-        } 
+        }
     }
 
-    public int newitem() {
+    /**
+     * @brief creates a new stack in the stores inventory
+     * @param cat Catagory of doughnut
+     * @param sty Style of Doughnut
+     * @param M   Menu
+     * @return 0
+     */
+    public int newstack(String cat, String sty, Menu M) {
+        float price;
+        int index;
+        Doughnut tmp;
+
+        index = M.IsItem(cat, sty);
+        if (index >= 0) {
+            price = M.GetPrice(index);
+            tmp = new Doughnut(sty, cat, price);
+            ginv.add(new DoughnutStack(tmp, 20));
+            System.out.println("Item has been added to inventory.");
+        } else {
+            System.out.println("Error item does not exist");
+        }
+        return 0;
+    }
+
+    public int takeFromStack() {
         return 0;
     }
 

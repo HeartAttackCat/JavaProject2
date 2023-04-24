@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.io.*;
 
 public class OrderHandler {
-    public Inventory inv = new Inventory();
+    public Inventory inv;
     public ArrayList<Order> Orders = new ArrayList<Order>();
 
     /**

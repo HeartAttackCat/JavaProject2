@@ -30,6 +30,20 @@ public class DoughnutStack {
     }
 
     /**
+     * @brief Constructor for loading orders.
+     * @param D     Date
+     * @param t     Doughnut information
+     * @param quant quantity we are loading in.
+     * @param fresh if the doughnut is fresh or not
+     */
+    DoughnutStack(Date D, Doughnut t, int quant, boolean fresh) {
+        expire = D;
+        DoughnutType = t;
+        quantity = quant;
+        good = fresh;
+    }
+
+    /**
      * @breif Constructor for customer orders
      */
     public DoughnutStack(Doughnut t, int quant) {
