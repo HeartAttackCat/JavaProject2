@@ -23,17 +23,9 @@ public class OrderHandler {
         ArrayList<DoughnutStack> temp;
         // orderID,price,quantity,status,date,items
         // items: Catagory-Style-Quantity=...=DNR
-        String str;
-        String ID;
-        String date;
-        String items;
+        String str, ID, date, items;
         float price;
-        int quantity;
-        int status;
-
-        int year;
-        int month;
-        int day;
+        int quantity, status, year, month, day;
 
         Date tmp;
         Scanner fp;
@@ -81,14 +73,15 @@ public class OrderHandler {
      * @param d     The date it was ordered.
      */
     public ArrayList<DoughnutStack> StackBuild(String items, Date d, Menu M) {
+<<<<<<< HEAD
         int cont = CountItems(items);
+=======
+        int quant, cont = CountItems(items);
+        System.out.println(cont);
+>>>>>>> 5be60636e56b1f52a29386a8b94b08135e5253ce
         ArrayList<DoughnutStack> temp = new ArrayList<DoughnutStack>();
         Doughnut t;
-        String str;
-
-        String cat;
-        String sty;
-        int quant;
+        String str, cat, sty;
         float price;
 
         for (int i = 0; i < cont; i++) {
@@ -153,17 +146,11 @@ public class OrderHandler {
     public String Builditems(int index) {
         String str = "";
         for (int i = 0; i < Orders.get(index).items.size(); i++) {
-            str = str + Orders.get(index).items.get(i).DoughnutType.catagory;
-            str = str + "-";
-            str = str + Orders.get(index).items.get(i).DoughnutType.Style;
-            str = str + "-";
-            str = str + Orders.get(index).items.get(i).quantity;
-            // Seperates each seperate item group.
-            str = str + "=";
+            DoughnutStack stack = Orders.get(index).items.get(i);
+            str += String.format("%s-%s-%s=", str, stack.DoughnutType.catagory, stack.DoughnutType.Style, stack.quantity);
        }
         // Do Not Read
         str = str + "DNR";
-
         return str;
     }
 

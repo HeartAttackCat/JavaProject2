@@ -1,2 +1,6 @@
 orderID,price,quantity,date,status,items
+<<<<<<< HEAD
 2023-02-0220,11.98,2,2023-12-12,0,Glazed-Raised-1=Grape-Filled-1=DNR
+=======
+2023-02-0220,0.0,1,2023-12-12,0,-Raised-Glazed=DNR
+>>>>>>> 5be60636e56b1f52a29386a8b94b08135e5253ce
