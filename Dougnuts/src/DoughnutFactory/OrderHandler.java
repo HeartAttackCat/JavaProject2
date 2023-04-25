@@ -142,7 +142,7 @@ public class OrderHandler {
         String str = "";
         for (int i = 0; i < Orders.get(index).items.size(); i++) {
             DoughnutStack stack = Orders.get(index).items.get(i);
-            str += String.format("%s-%s-%s=", str, stack.DoughnutType.catagory, stack.DoughnutType.Style, stack.quantity);
+            str += String.format("%s-%s-%s=", stack.DoughnutType.catagory, stack.DoughnutType.Style, stack.quantity);
        }
         // Do Not Read
         str = str + "DNR";
