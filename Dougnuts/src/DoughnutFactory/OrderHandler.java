@@ -130,16 +130,14 @@ public class OrderHandler {
         try {
             // Clears file or creates a new if it doesn't exist
             String str = "";
+            
             FileWriter fp = new FileWriter("./Dougnuts/res/Orders.csv", false);
             fp.write("orderID,price,quantity,date,status,items\n");
 
             // Begins writing
             for (int i = 0; i < Orders.size(); i++) {
-                str = Orders.get(i).number + "," + String.valueOf(Orders.get(i).TotalPrice);
-                str = str + "," + String.valueOf(Orders.get(i).TotalQuantity);
-                str = str + "," + Orders.get(i).date.DateToString() + "," + Orders.get(i).status;
-                str = str + "," + Builditems(i);
-                str = str + "\n";
+                Order tmp = Orders.get(i);
+                str = String.format("%s,%s,%s,%s,%s,%s\n", tmp.number, tmp.TotalPrice, tmp.TotalQuantity, tmp.date.DateToString(), tmp.status, Builditems(i));
                 fp.write(str);
             }
             fp.close();
