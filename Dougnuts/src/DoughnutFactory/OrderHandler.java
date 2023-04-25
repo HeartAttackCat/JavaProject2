@@ -24,7 +24,7 @@ public class OrderHandler {
         // orderID,price,quantity,status,date,items
         // items: Catagory-Style-Quantity=...=DNR
         String str, ID, date, items;
-        float price;
+        float pr;
         int quantity, status, year, month, day;
 
         Date tmp;
@@ -37,8 +37,9 @@ public class OrderHandler {
             while (fp.hasNextLine()) {
                 str = fp.nextLine();
                 ID = str.split(",", 5)[0];
+                pr = Float.parseFloat(str.split(",", 6)[1]);
                 try {
-                    price = Float.parseFloat(str.split(",", 6)[1]);
+                    pr = Float.parseFloat(str.split(",", 6)[1]);
                     quantity = Integer.parseInt(str.split(",", 6)[2]);
                 } catch (NumberFormatException e) {
                     System.out.println("Ignoring...");
@@ -58,7 +59,7 @@ public class OrderHandler {
                 temp = StackBuild(items, tmp, M);
                 
 
-                Orders.add(new Order(ID, temp, tmp, status));
+                Orders.add(new Order(ID, temp, tmp, status, pr));
 
             }
             fp.close();

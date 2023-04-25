@@ -54,5 +54,8 @@ menu.csv would clear itself of all data instead of updating when saving to it. O
 that it was a lot of formatting issues. When splitting strings we'd go out of bounds because
 we didn't create enough splits due to the offset being off by one. This created a giant
 mass of bugs whenever we started the original debugging. The file location because 
-the folder dougnut is spelt wrong I didn't notice that was causing the issues.
+the folder dougnut is spelt wrong I didn't notice that was causing the issues. There was also
+an error when reloading the total prices of orders. The prices would swap between their actual price
+and 0 dollars everytime you ran the program. This was fixed by just passing in the read price
+and setting it to that in the constructor.
 -----

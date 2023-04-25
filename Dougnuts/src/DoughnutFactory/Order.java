@@ -38,14 +38,14 @@ public class Order {
     }
 
     /**
-     * @brief constructor Without number already created
+     * @brief constructor Order number already created
      */
-    public Order(String Onum, ArrayList<DoughnutStack> ord, Date d, int status) {
+    public Order(String Onum, ArrayList<DoughnutStack> ord, Date d, int status, float price) {
         date = d;
         number = Onum;
         items = ord;
         this.status = status;
-        TotalPrice = 0;
+        TotalPrice = price;
         TotalQuantity = 0;
 
         for (int i = 0; i < ord.size(); i++) {
