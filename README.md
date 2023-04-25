@@ -41,3 +41,18 @@ Ambrosia Ingoglia
 Created sequence diagrams.
 Worked on presenation.
 -
+-----
+Things that could of been improved:
+----
+Communication
+Time Management
+-----
+Difficulties while writing
+-----
+A lot of file io errors arrose. For example the most interesting is that oringinally
+menu.csv would clear itself of all data instead of updating when saving to it. Other than
+that it was a lot of formatting issues. When splitting strings we'd go out of bounds because
+we didn't create enough splits due to the offset being off by one. This created a giant
+mass of bugs whenever we started the original debugging. The file location because 
+the folder dougnut is spelt wrong I didn't notice that was causing the issues.
+-----
