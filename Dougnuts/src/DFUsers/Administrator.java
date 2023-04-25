@@ -63,7 +63,7 @@ public class Administrator extends User {
 
                 case 'c':
                 case 'C':
-                    System.out.print("What catagory are we adding: ");
+                    System.out.print("What catagory are we Deleting: ");
                     str1 = s.nextLine();
                     System.out.print("What style is the item: ");
                     str2 = s.nextLine();    
@@ -72,7 +72,7 @@ public class Administrator extends User {
 
                 case 'd':
                 case 'D':
-                    System.out.print("What catagory are we adding: ");
+                    System.out.print("What catagory are we Editing: ");
                     str1 = s.nextLine();
                     System.out.print("What style is the item: ");
                     str2 = s.nextLine();

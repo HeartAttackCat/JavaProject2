@@ -39,7 +39,7 @@ public class App {
         while (perm != -1) {
             perm = per.UInterface(Mu, OH, scan);
         }
-        System.out.println(OH.Orders.size());
+        OH.inv.SaveInv();
         OH.saveOrders();
     }
 }

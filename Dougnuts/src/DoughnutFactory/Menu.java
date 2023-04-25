@@ -139,7 +139,6 @@ public class Menu {
         System.out.print("What is the new item cost: ");
         str = s.nextLine();
         MenuItems.get(index).Cost = Float.parseFloat(str);
-        s.close();
         SaveChanges();
     }
 
