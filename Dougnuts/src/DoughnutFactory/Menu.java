@@ -157,8 +157,6 @@ public class Menu {
             for (int i = 0; i < MenuItems.size(); i++) {
                 Doughnut tmp = MenuItems.get(i);
                 str = String.format("%s,%s,%s\n", tmp.catagory, tmp.Style, String.valueOf(tmp.Cost));
-                str = MenuItems.get(i).catagory + MenuItems.get(i).Style;
-                str = str + String.valueOf(MenuItems.get(i).Cost);
                 fp.write(str);
             }
             fp.close();
