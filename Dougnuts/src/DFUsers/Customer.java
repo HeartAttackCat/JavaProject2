@@ -82,6 +82,7 @@ public class Customer extends User {
         Doughnut temp;
         String str1 = "";
         String str2 = "";
+        String str3 = "";
         Scanner sc = new Scanner(System.in);
 
         ArrayList<DoughnutStack> cord = new ArrayList<DoughnutStack>();
@@ -116,10 +117,10 @@ public class Customer extends User {
                     System.out.print("Please enter the item's sub catagory: ");
                     str2 = sc.nextLine();
                     index = M.IsItem(str1, str2);
-                    System.out.println(index);
                     if (index >= 0) {
                         System.out.print("How many would you like: ");
-                        quant = Integer.parseInt(sc.nextLine());
+                        str3 = sc.nextLine();
+                        quant = Integer.parseInt(str3);
                         price = M.GetPrice(index);
                         temp = new Doughnut(str2, str1, price);
                         cord.add(new DoughnutStack(temp, quant));
