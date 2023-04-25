@@ -79,8 +79,6 @@ public class Inventory {
         float price;
         int index;
         Doughnut tmp;
-        System.out.println(cat);
-        System.out.println(sty);
         index = M.IsItem(cat, sty);
         if (index >= 0) {
             price = M.GetPrice(index);
