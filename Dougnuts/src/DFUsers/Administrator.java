@@ -47,6 +47,9 @@ public class Administrator extends User {
                 // Call functions from the menu class to represent adding, deleting, etc.
                 case 'a':
                 case 'A':
+                    System.out.print("What year are we interested in: ");
+                    str1 = s.nextLine();
+                    num = Integer.parseInt(str1);
                     GenerateReports(ords, num);
                     break;
 
