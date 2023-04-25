@@ -79,8 +79,7 @@ public class Inventory {
         int index;
         Doughnut tmp;
 
-        index = M.IsItem(sty, cat);
-        System.out.println(index);
+        index = M.IsItem(cat, sty);
         if (index >= 0) {
             price = M.GetPrice(index);
             tmp = new Doughnut(cat, sty, price);
@@ -136,7 +135,7 @@ public class Inventory {
      */
     public void SaveInv() {
         String zadj = "0";
-        String Winfo = "Catagory,style,quantity,date,price";
+        String Winfo = "Catagory,style,quantity,date,price\n";
         try {
             RandomAccessFile raf = new RandomAccessFile("./Dougnuts/res/inv.csv", "rws");
             try {
@@ -144,40 +143,14 @@ public class Inventory {
                 raf.writeBytes(Winfo);
                 // Writes in the expired inventory
                 for (int i = 0; i < binv.size(); i++) {
-                    Winfo = ("\n");
-                    Winfo += binv.get(i).DoughnutType.catagory;
-                    Winfo += ",";
-                    Winfo += binv.get(i).DoughnutType.Style;
-                    Winfo += ",";
-                    if (binv.get(i).quantity < 10) {
-                        zadj = "0" + String.valueOf(binv.get(i).quantity);
-                    } else {
-                        zadj = String.valueOf(binv.get(i).quantity);
-                    }
-                    Winfo += zadj;
-                    Winfo += ",";
-                    Winfo += binv.get(i).expire.DateToString();
-                    Winfo += ",";
-                    Winfo += String.valueOf(binv.get(i).DoughnutType.Cost);
+                    DoughnutStack temp = binv.get(i);
+                    Winfo = String.format("%s,%s,%s,%s,%s", temp.DoughnutType.catagory, temp.DoughnutType.Style, String.valueOf(temp.quantity), temp.expire.DateToString(), String.valueOf(temp.DoughnutType.Cost));
                     raf.writeBytes(Winfo);
                 }
                 // Writes the good inventory
-                for (int i = 0; i < binv.size(); i++) {
-                    Winfo = ("\n");
-                    Winfo += ginv.get(i).DoughnutType.catagory;
-                    Winfo += ",";
-                    Winfo += ginv.get(i).DoughnutType.Style;
-                    Winfo += ",";
-                    if (binv.get(i).quantity < 10) {
-                        zadj = "0" + String.valueOf(binv.get(i).quantity);
-                    } else {
-                        zadj = String.valueOf(binv.get(i).quantity);
-                    }
-                    Winfo += zadj;
-                    Winfo += ",";
-                    Winfo += ginv.get(i).expire.DateToString();
-                    Winfo += ",";
-                    Winfo += String.valueOf(ginv.get(i).DoughnutType.Cost);
+                for (int i = 0; i < ginv.size(); i++) {
+                    DoughnutStack temp = ginv.get(i);
+                    Winfo = String.format("%s,%s,%s,%s,%s", temp.DoughnutType.catagory, temp.DoughnutType.Style, String.valueOf(temp.quantity), temp.expire.DateToString(), String.valueOf(temp.DoughnutType.Cost));
                     raf.writeBytes(Winfo);
                 }
                 raf.close();
