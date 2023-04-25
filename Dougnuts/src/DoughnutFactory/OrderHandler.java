@@ -136,8 +136,8 @@ public class OrderHandler {
             // Begins writing
             for (int i = 0; i < Orders.size(); i++) {
                 str = Orders.get(i).number + "," + String.valueOf(Orders.get(i).TotalPrice);
-                str = str + "," + String.valueOf(Orders.get(i).TotalQuantity) + "," + Orders.get(i).status;
-                str = str + "," + Orders.get(i).date.DateToString();
+                str = str + "," + String.valueOf(Orders.get(i).TotalQuantity);
+                str = str + "," + Orders.get(i).date.DateToString() + "," + Orders.get(i).status;
                 str = str + "," + Builditems(i);
                 str = str + "\n";
                 fp.write(str);
