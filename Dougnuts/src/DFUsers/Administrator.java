@@ -109,7 +109,6 @@ public class Administrator extends User {
      * @brief generates the sales reports.
      */
     void Salesrep(OrderHandler ords, int year) {
-        Date d = new Date();
         String repname = "salesrep" + String.valueOf(year) + ".txt";
         File fp = new File(repname);
         String Winfo = "";

@@ -57,9 +57,9 @@ public class Date {
         String made = CurrentDate();
         int cur = 0;
         int tmade = 0;
-        int dy = Integer.parseInt(made.split("-", 2)[0]);
-        int dm = Integer.parseInt(made.split("-", 2)[1]);
-        int dd = Integer.parseInt(made.split("-", 2)[2]);
+        int dy = Integer.parseInt(made.split("-", 3)[0]);
+        int dm = Integer.parseInt(made.split("-", 3)[1]);
+        int dd = Integer.parseInt(made.split("-", 3)[2]);
         // Adjusting for leap years
         if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0) {
             for (int i = 1; i > 12; i++) {

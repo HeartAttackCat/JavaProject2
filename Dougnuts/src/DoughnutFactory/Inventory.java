@@ -40,11 +40,12 @@ public class Inventory {
             fp = new Scanner(new File("./Dougnuts/res/inv.csv"));
             fp.nextLine();
             while (fp.hasNextLine()) {
+                //Catagory,style,quantity,date,price
                 str = fp.nextLine();
                 catagory = str.split(",", 5)[0];
                 type = str.split(",", 5)[1];
-                date = str.split(",", 5)[2];
-                quant = Integer.parseInt(str.split(",", 5)[3]);
+                date = str.split(",", 5)[3];
+                quant = Integer.parseInt(str.split(",", 5)[2]);
                 price = Float.parseFloat(str.split(",", 5)[4]);
 
                 year = Integer.parseInt(date.split("-", 3)[0]);
@@ -144,7 +145,7 @@ public class Inventory {
                 // Writes in the expired inventory
                 for (int i = 0; i < binv.size(); i++) {
                     DoughnutStack temp = binv.get(i);
-                    Winfo = String.format("%s,%s,%s,%s,%s", temp.DoughnutType.catagory, temp.DoughnutType.Style, String.valueOf(temp.quantity), temp.expire.DateToString(), String.valueOf(temp.DoughnutType.Cost));
+                    Winfo = String.format("%s,%s,%s,%s,%s\n", temp.DoughnutType.catagory, temp.DoughnutType.Style, String.valueOf(temp.quantity), temp.expire.DateToString(), String.valueOf(temp.DoughnutType.Cost));
                     raf.writeBytes(Winfo);
                 }
                 // Writes the good inventory
