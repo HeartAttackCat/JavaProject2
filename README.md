@@ -20,29 +20,29 @@ Contribution:
 -----
 Hunter Lane
 -
-Worked on DFUsers and Doughnut Factory 
+Worked on DFUsers and Doughnut Factory. 
 Planning the project.
 Created drafts for the diagrams.
 Debugging.
 -
 Jalethzie Pena:
 -
-Wrote all initial diagrams
-Worked on Presentation
-Worked on DFUsers
+Wrote all initial diagrams.
+Worked on Presentation.
+Worked on DFUsers.
 -
 Kassidy Maberry
 -
-Worked on DFUsers and Doughnut Factory 
-Worked on data files
+Worked on DFUsers and Doughnut Factory. 
+Worked on data files.
 Debugging.
 Finalized Class diagram.
 -
 Ambrosia Ingoglia
 -
-Typed up all diagrams
-Worked on presentation
-Worked on DFUsers
+Typed up all diagrams.
+Worked on presentation.
+Worked on DFUsers.
 -
 -----
 Things that could of been improved:
