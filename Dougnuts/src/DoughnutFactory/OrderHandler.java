@@ -73,12 +73,7 @@ public class OrderHandler {
      * @param d     The date it was ordered.
      */
     public ArrayList<DoughnutStack> StackBuild(String items, Date d, Menu M) {
-<<<<<<< HEAD
-        int cont = CountItems(items);
-=======
         int quant, cont = CountItems(items);
-        System.out.println(cont);
->>>>>>> 5be60636e56b1f52a29386a8b94b08135e5253ce
         ArrayList<DoughnutStack> temp = new ArrayList<DoughnutStack>();
         Doughnut t;
         String str, cat, sty;
