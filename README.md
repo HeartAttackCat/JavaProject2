@@ -60,5 +60,7 @@ mass of bugs whenever we started the original debugging. The file location becau
 the folder dougnut is spelt wrong I didn't notice that was causing the issues. There was also
 an error when reloading the total prices of orders. The prices would swap between their actual price
 and 0 dollars everytime you ran the program. This was fixed by just passing in the read price
-and setting it to that in the constructor.
+and setting it to that in the constructor. However after fixing that the total price would randomly
+increase by a set amount of money. I found out later that the legacy code that was causing this error
+was never removed so this bug was fixed by removing a line of code.
 -----
