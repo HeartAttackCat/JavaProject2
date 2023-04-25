@@ -28,6 +28,7 @@ public class Administrator extends User {
         String str2 = "";
         char a = 'a';
         int num = 2023;
+        float pc;
         System.out.println("Welcome User!");
         while (a != 'z') {
             System.out.println("Choose one of the following options");
@@ -51,16 +52,30 @@ public class Administrator extends User {
 
                 case 'b':
                 case 'B':
-                    M.AddItem(str1, str2, a);
+                    System.out.print("What catagory are we adding: ");
+                    str1 = s.nextLine();
+                    System.out.print("What style is the item: ");
+                    str2 = s.nextLine();
+                    System.out.print("what is the item's cost: ");
+                    pc = Float.parseFloat(s.nextLine());
+                    M.AddItem(str1, str2, pc);
                     break;
 
                 case 'c':
                 case 'C':
+                    System.out.print("What catagory are we adding: ");
+                    str1 = s.nextLine();
+                    System.out.print("What style is the item: ");
+                    str2 = s.nextLine();    
                     M.DeleteItem(str1, str2);
                     break;
 
                 case 'd':
                 case 'D':
+                    System.out.print("What catagory are we adding: ");
+                    str1 = s.nextLine();
+                    System.out.print("What style is the item: ");
+                    str2 = s.nextLine();
                     M.EditItem(str1, str2);
                     break;
 

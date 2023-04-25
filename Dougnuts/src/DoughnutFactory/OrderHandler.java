@@ -82,7 +82,6 @@ public class OrderHandler {
      */
     public ArrayList<DoughnutStack> StackBuild(String items, Date d, Menu M) {
         int cont = CountItems(items);
-        System.out.println(cont);
         ArrayList<DoughnutStack> temp = new ArrayList<DoughnutStack>();
         Doughnut t;
         String str;
@@ -94,7 +93,6 @@ public class OrderHandler {
 
         for (int i = 0; i < cont; i++) {
             str = items.split("=", cont + 1)[i];
-            System.out.println(str);
             sty = str.split("-", 3)[1];
             cat = str.split("-", 3)[0];
             quant = Integer.parseInt(str.split("-", 3)[2]);
