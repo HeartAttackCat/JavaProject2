@@ -17,13 +17,31 @@ public class Order {
     public int TotalQuantity;
 
     /**
-     * @brief constructor
+     * @brief constructor Without number already created
      */
     public Order(int Onum, ArrayList<DoughnutStack> ord) {
         date = new Date();
         number = date.DateToString();
         number = number + String.valueOf(Onum);
         // Zero == Processing | One == Processed
+        items = ord;
+        status = 0;
+        TotalPrice = 0;
+        TotalQuantity = 0;
+
+        for (int i = 0; i < ord.size(); i++) {
+            TotalPrice = TotalPrice + (ord.get(i).DoughnutType.Cost * ord.get(i).quantity);
+            TotalQuantity += ord.get(i).quantity;
+        }
+
+    }
+
+    /**
+     * @brief constructor Without number already created
+     */
+    public Order(String Onum, ArrayList<DoughnutStack> ord, Date d) {
+        date = d;
+        number = Onum;
         items = ord;
         status = 0;
         TotalPrice = 0;

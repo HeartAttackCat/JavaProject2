@@ -1,2 +1,2 @@
-orderID,price,quantity,date,items
-2023-02-0220,5.99,1,2023-12-12,Raised-Glazed-1=DNR
+orderID,price,quantity,date,status,items
+2023-02-0220,5.99,1,0,2023-12-12,Glazed-Raised-1=DNR

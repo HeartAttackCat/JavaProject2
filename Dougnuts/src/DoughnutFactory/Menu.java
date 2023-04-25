@@ -202,10 +202,8 @@ public class Menu {
                 if (MenuItems.get(i).Style.compareToIgnoreCase(type) == 0) {
                     return i;
                 }
-                return -2;
             }
         }
-
         return -1;
     }
 

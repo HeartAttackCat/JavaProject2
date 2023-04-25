@@ -46,19 +46,17 @@ public class OrderHandler {
                 str = fp.nextLine();
                 ID = str.split(",", 5)[0];
                 try {
-                    price = Float.parseFloat(str.split(",", 5)[1]);
-                    quantity = Integer.parseInt(str.split(",", 5)[2]);
-                    // status = Integer.parseInt(str.split(",", 5)[3]);
+                    price = Float.parseFloat(str.split(",", 6)[1]);
+                    quantity = Integer.parseInt(str.split(",", 6)[2]);
                 } catch (NumberFormatException e) {
                     System.out.println("Ignoring...");
                 }
                 
-                date = str.split(",", 5)[3];
-                items = str.split(",", 5)[4];
+                date = str.split(",", 6)[3];
+                status = Integer.parseInt(str.split(",",6)[4]);
+                items = str.split(",", 6)[5];
 
                 // Builds date;
-                System.out.println(date);
-                System.out.println(date.split("-", 3)[1]);
                 year = Integer.parseInt(date.split("-", 3)[0]);
                 month = Integer.parseInt(date.split("-", 3)[1]);
                 day = Integer.parseInt(date.split("-", 3)[2]);
@@ -66,8 +64,9 @@ public class OrderHandler {
 
                 // Builds the person's order items
                 temp = StackBuild(items, tmp, M);
+                
 
-                Orders.add(new Order(Orders.size(), temp));
+                Orders.add(new Order(ID, temp, tmp));
 
             }
             fp.close();
@@ -83,6 +82,7 @@ public class OrderHandler {
      */
     public ArrayList<DoughnutStack> StackBuild(String items, Date d, Menu M) {
         int cont = CountItems(items);
+        System.out.println(cont);
         ArrayList<DoughnutStack> temp = new ArrayList<DoughnutStack>();
         Doughnut t;
         String str;
@@ -92,12 +92,12 @@ public class OrderHandler {
         int quant;
         float price;
 
-        for (int i = 0; i < cont - 1; i++) {
-            str = items.split("=", cont)[i];
-
-            sty = str.split("-", 2)[1];
-            cat = str.split("-", 2)[0];
-            quant = Integer.parseInt(str.split("-", 2)[2]);
+        for (int i = 0; i < cont; i++) {
+            str = items.split("=", cont + 1)[i];
+            System.out.println(str);
+            sty = str.split("-", 3)[1];
+            cat = str.split("-", 3)[0];
+            quant = Integer.parseInt(str.split("-", 3)[2]);
             price = M.GetPrice(cat, sty);
 
             t = new Doughnut(sty, cat, price);
@@ -131,15 +131,15 @@ public class OrderHandler {
             // Clears file or creates a new if it doesn't exist
             String str = "";
             FileWriter fp = new FileWriter("./Dougnuts/res/Orders.csv", false);
-            fp.write("catagory,style,price,quantity");
+            fp.write("orderID,price,quantity,date,status,items\n");
 
             // Begins writing
             for (int i = 0; i < Orders.size(); i++) {
-                str = Orders.get(i).number + String.valueOf(Orders.get(i).TotalPrice);
-                str = str + String.valueOf(Orders.get(i).TotalQuantity) + Orders.get(i).status;
-                str = str + Orders.get(i).date.DateToString();
-                str = str + Builditems(i);
-                str = str + '\n';
+                str = Orders.get(i).number + "," + String.valueOf(Orders.get(i).TotalPrice);
+                str = str + "," + String.valueOf(Orders.get(i).TotalQuantity) + "," + Orders.get(i).status;
+                str = str + "," + Orders.get(i).date.DateToString();
+                str = str + "," + Builditems(i);
+                str = str + "\n";
                 fp.write(str);
             }
             fp.close();
