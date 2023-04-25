@@ -1,4 +1,0 @@
-1. Update class  diagram
-2. DEBUG
-    a. fix file reading problem
-    b. Figure out the the most devestating bugs
