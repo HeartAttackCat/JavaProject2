@@ -6,6 +6,7 @@
  */
 package DoughnutFactory;
 
+import java.io.ObjectInputFilter.Status;
 import java.util.ArrayList;
 
 public class Order {
@@ -39,11 +40,11 @@ public class Order {
     /**
      * @brief constructor Without number already created
      */
-    public Order(String Onum, ArrayList<DoughnutStack> ord, Date d) {
+    public Order(String Onum, ArrayList<DoughnutStack> ord, Date d, int status) {
         date = d;
         number = Onum;
         items = ord;
-        status = 0;
+        this.status = status;
         TotalPrice = 0;
         TotalQuantity = 0;
 

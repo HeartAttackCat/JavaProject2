@@ -58,7 +58,7 @@ public class OrderHandler {
                 temp = StackBuild(items, tmp, M);
                 
 
-                Orders.add(new Order(ID, temp, tmp));
+                Orders.add(new Order(ID, temp, tmp, status));
 
             }
             fp.close();
