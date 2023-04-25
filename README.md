@@ -40,6 +40,7 @@ Ambrosia Ingoglia
 -
 Created sequence diagrams.
 Worked on presenation.
+Wrote code.
 -
 -----
 Things that could of been improved:
