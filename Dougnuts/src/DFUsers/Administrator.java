@@ -115,7 +115,8 @@ public class Administrator extends User {
         String repname = "salesrep" + String.valueOf(year) + ".txt";
         File fp = new File(repname);
         String Winfo = "";
-
+        Order z;
+        
         int y;
         float TotalY = 0;
         float totalM[] = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
@@ -126,11 +127,12 @@ public class Administrator extends User {
         } catch (IOException e) {
         }
 
-        for (int i = 0; i < ords.inv.binv.size(); i++) {
-            y = ords.inv.binv.get(i).expire.year;
+        for (int i = 0; i < ords.Orders.size(); i++) {
+            z = ords.Orders.get(i);
+            y = z.date.year;
             if (y == year) {
-                totalM[ords.inv.binv.get(i).expire.month] += ords.inv.binv.get(i).quantity;
-                TotalY += ords.inv.binv.get(i).quantity;
+                totalM[z.date.month - 1] += z.TotalPrice;
+                TotalY += z.TotalPrice;
             }
         }
 
@@ -140,16 +142,18 @@ public class Administrator extends User {
             Winfo = String.valueOf(TotalY);
             Winfo = Winfo + " total doughnuts were tossed in the year " + String.valueOf(year);
             fw.write(Winfo);
-            fw.write("\nMonth\t|\tTotal tossed\n");
+            fw.write("\nMonth\t|\tTotal earnings\n");
             for (int i = 0; i < 12; i++) {
-                Winfo = String.valueOf(i);
+                Winfo = String.valueOf(i + 1);
                 Winfo = Winfo + "\t|\t";
                 Winfo = Winfo + String.valueOf(totalM[i]);
                 Winfo = Winfo + "\n";
+                System.out.println(Winfo);
                 fw.write(Winfo);
             }
             Winfo = String.valueOf(TotalY / 52) + " doughnuts on average were tossed each week.";
             fw.write(Winfo);
+            fw.close();
 
         } catch (IOException e) {
             // TODO Auto-generated catch block
@@ -192,7 +196,7 @@ public class Administrator extends User {
             fw.write(Winfo);
             fw.write("\nMonth\t|\tTotal tossed\n");
             for (int i = 0; i < 12; i++) {
-                Winfo = String.valueOf(i);
+                Winfo = String.valueOf(i + 1);
                 Winfo = Winfo + "\t|\t";
                 Winfo = Winfo + String.valueOf(totalM[i]);
                 Winfo = Winfo + "\n";
@@ -200,7 +204,7 @@ public class Administrator extends User {
             }
             Winfo = String.valueOf(TotalY / 52) + " doughnuts on average were tossed each week.";
             fw.write(Winfo);
-
+            fw.close();
         } catch (IOException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
