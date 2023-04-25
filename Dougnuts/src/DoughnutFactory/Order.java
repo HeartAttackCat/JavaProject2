@@ -49,7 +49,6 @@ public class Order {
         TotalQuantity = 0;
 
         for (int i = 0; i < ord.size(); i++) {
-            TotalPrice = TotalPrice + (ord.get(i).DoughnutType.Cost * ord.get(i).quantity);
             TotalQuantity += ord.get(i).quantity;
         }
 
