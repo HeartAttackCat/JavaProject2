@@ -58,7 +58,7 @@ public class OrderHandler {
                 temp = StackBuild(items, tmp, M);
                 
 
-                Orders.add(new Order(ID, temp, tmp));
+                Orders.add(new Order(ID, temp, tmp, status));
 
             }
             fp.close();
@@ -107,9 +107,7 @@ public class OrderHandler {
      * @param cord the order we are adding onto the list.
      */
     public void CreateOrder(Order cord) {
-        ArrayList<DoughnutStack> ord = new ArrayList<DoughnutStack>();
-        // Adds a new order to the list passes the current size for the ID.
-        Orders.add(new Order(Orders.size(), ord));
+        Orders.add(cord);
     }
 
     public int saveOrders() {
@@ -123,7 +121,9 @@ public class OrderHandler {
             // Begins writing
             for (int i = 0; i < Orders.size(); i++) {
                 Order tmp = Orders.get(i);
+                System.out.println(tmp.items.get(0).DoughnutType.Style);
                 str = String.format("%s,%s,%s,%s,%s,%s\n", tmp.number, tmp.TotalPrice, tmp.TotalQuantity, tmp.date.DateToString(), tmp.status, Builditems(i));
+                System.out.println(String.format("[DEBUG] Order:%s, count=%d", str, Orders.size()));
                 fp.write(str);
             }
             fp.close();
@@ -142,7 +142,7 @@ public class OrderHandler {
         String str = "";
         for (int i = 0; i < Orders.get(index).items.size(); i++) {
             DoughnutStack stack = Orders.get(index).items.get(i);
-            str += String.format("%s-%s-%s=", str, stack.DoughnutType.catagory, stack.DoughnutType.Style, stack.quantity);
+            str += String.format("%s-%s-%s=", stack.DoughnutType.catagory, stack.DoughnutType.Style, stack.quantity);
        }
         // Do Not Read
         str = str + "DNR";
