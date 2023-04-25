@@ -79,7 +79,8 @@ public class Inventory {
         float price;
         int index;
         Doughnut tmp;
-
+        System.out.println(cat);
+        System.out.println(sty);
         index = M.IsItem(cat, sty);
         if (index >= 0) {
             price = M.GetPrice(index);
@@ -87,7 +88,7 @@ public class Inventory {
             ginv.add(new DoughnutStack(tmp, 20));
             System.out.println("Item has been added to inventory.");
         } else {
-            System.out.println("Error item does not exist");
+            return -1;
         }
         return 0;
     }
@@ -98,7 +99,9 @@ public class Inventory {
             index = searchginv(cat, sty);
             if (index <= -1) {
                 // Assumed employee will validate to add more.
-                newstack(cat, sty, M);
+                if (newstack(cat, sty, M) == -1){
+                    return -1;
+                }
             } else if (cont > ginv.get(index).quantity) {
                 cont -= ginv.get(index).quantity;
                 ginv.get(index).quantity = 0;
