@@ -1,0 +1,15 @@
+20 total doughnuts were tossed in the year 2023
+Month	|	Total tossed
+1	|	0
+2	|	0
+3	|	0
+4	|	0
+5	|	20
+6	|	0
+7	|	0
+8	|	0
+9	|	0
+10	|	0
+11	|	0
+12	|	0
+0.38461538461538464 were tossed per week.

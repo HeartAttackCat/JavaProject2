@@ -140,18 +140,17 @@ public class Administrator extends User {
         try {
             FileWriter fw = new FileWriter(fp, false);
             Winfo = String.valueOf(TotalY);
-            Winfo = Winfo + " total doughnuts were tossed in the year " + String.valueOf(year);
+            Winfo = "$" + Winfo + " was earned in the year " + String.valueOf(year);
             fw.write(Winfo);
             fw.write("\nMonth\t|\tTotal earnings\n");
             for (int i = 0; i < 12; i++) {
                 Winfo = String.valueOf(i + 1);
                 Winfo = Winfo + "\t|\t";
-                Winfo = Winfo + String.valueOf(totalM[i]);
+                Winfo = Winfo + "$" + String.valueOf(totalM[i]);
                 Winfo = Winfo + "\n";
-                System.out.println(Winfo);
                 fw.write(Winfo);
             }
-            Winfo = String.valueOf(TotalY / 52) + " doughnuts on average were tossed each week.";
+            Winfo = "$" + String.valueOf(TotalY / 52) + " Was earned each week.";
             fw.write(Winfo);
             fw.close();
 
@@ -202,7 +201,7 @@ public class Administrator extends User {
                 Winfo = Winfo + "\n";
                 fw.write(Winfo);
             }
-            Winfo = String.valueOf(TotalY / 52) + " doughnuts on average were tossed each week.";
+            Winfo = String.valueOf(TotalY / 52.0) + " were tossed per week.";
             fw.write(Winfo);
             fw.close();
         } catch (IOException e) {
